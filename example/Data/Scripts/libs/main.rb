@@ -1,0 +1,7 @@
+require_relative '../../../../lib/core_plus/bitmap2png'
+require_relative '../../../../lib/core_plus/core_plus'
+require_relative '../../../../lib/event/event'
+require_relative '../../../../lib/database/csv'
+require_relative '../../../../lib/database/json'
+require_relative '../../../../lib/database/xml'
+require_relative '../../../../src/rgui'
