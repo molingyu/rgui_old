@@ -10,8 +10,8 @@ module RGUI
 
     def initialize
       super
-      @key_name = [
-          build = 233
+      @keyboard_events = [
+
       ]
       @mouse_events = [
 
@@ -22,6 +22,21 @@ module RGUI
       super
       mouse_update
       keyboard_update
+    end
+
+    def mouse_update
+
+    end
+
+    def keyboard_update
+
+    end
+
+    def on(name, index = nil, &callback)
+      type = 2
+      type = 0 if @mouse_events[name]
+      type = 1 if @keyboard_events[name]
+      super(name, index, type, &callback)
     end
 
   end

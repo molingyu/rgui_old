@@ -9,12 +9,12 @@ module RGUI
   class << self
     
     attr_reader :_NEXT_ID
-    attr_accessor :PATH, :CONTROLS
+    attr_accessor :PATH, :CONTROLS, :SKIN_PATH
     
     RGUI.CONTROLS = 0
 
     def get_id
-      @_NEXT_ID += 1
+      RGUI._NEXT_ID += 1
     end
 
     def hit(x, y, rect)
@@ -33,7 +33,7 @@ module RGUI
       if value == nil
         false
       else
-        value = true
+        true
       end
     end
 
