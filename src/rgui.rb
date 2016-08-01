@@ -8,13 +8,11 @@ module RGUI
 
   class << self
     
-    attr_reader :_NEXT_ID
-    attr_accessor :PATH, :CONTROLS, :SKIN_PATH
-    
-    RGUI.CONTROLS = 0
+    attr_reader :NEXT_ID
+    attr_accessor :MOUSE?, :KEYBOARD?, :PATH, :CONTROLS, :SKIN_PATH
 
     def get_id
-      RGUI._NEXT_ID += 1
+      RGUI.NEXT_ID += 1
     end
 
     def hit(x, y, rect)
@@ -65,7 +63,10 @@ module RGUI
     end
 
     def init
-      @_NEXT_ID = 0
+      RGUI.MOUSE? = true
+      RGUI.KEYBOARD? = true
+      RGUI.CONTROLS = 0
+      RGUI.NEXT_ID = 0
       auto_load
       say_hello
     end

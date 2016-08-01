@@ -328,7 +328,7 @@ class Color
   end
   
   def to_hex
-    sprintf("#%02x%02x%02x", self.red, self.green, self.blue)
+    sprintf('#%02x%02x%02x', self.red, self.green, self.blue)
   end
   
 end

@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b340aef2-bac1-4a44-9e92-d64e69cb7221" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/skin.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/shitake.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/main.md" afterPath="$PROJECT_DIR$/doc/main.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controls/button.rb" afterPath="$PROJECT_DIR$/src/controls/button.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/event_manger.rb" afterPath="$PROJECT_DIR$/src/event_manger.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/core_plus/bitmap2png.rb" afterPath="$PROJECT_DIR$/lib/core_plus/bitmap2png.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/core_plus/core_plus.rb" afterPath="$PROJECT_DIR$/lib/core_plus/core_plus.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/rgui.rb" afterPath="$PROJECT_DIR$/src/rgui.rb" />
     </list>
     <ignored path="rgui.iws" />
@@ -35,122 +35,152 @@
     <favorites_list name="rgui" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="title_view.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/Data/Scripts/views/title_view.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-              <folding>
-                <element signature="e#424#584#0" expanded="false" />
-                <element signature="e#590#750#0" expanded="false" />
-                <element signature="e#756#897#0" expanded="false" />
-                <element signature="e#903#1095#0" expanded="false" />
-                <element signature="e#1101#1301#0" expanded="false" />
-                <element signature="e#1307#1588#0" expanded="false" />
-                <element signature="e#1594#1789#0" expanded="false" />
-                <element signature="e#1795#1977#0" expanded="false" />
-                <element signature="e#1983#2177#0" expanded="false" />
-                <element signature="e#2183#2371#0" expanded="false" />
-                <element signature="e#2377#2572#0" expanded="false" />
-                <element signature="e#2578#2697#0" expanded="false" />
-                <element signature="e#2703#3429#0" expanded="false" />
-                <element signature="e#3471#3906#0" expanded="false" />
-                <element signature="e#4079#4234#0" expanded="false" />
-                <element signature="e#4240#4308#0" expanded="false" />
-                <element signature="e#4314#4335#0" expanded="false" />
-                <element signature="e#4341#4443#0" expanded="false" />
-                <element signature="e#4449#4558#0" expanded="false" />
-                <element signature="e#4564#4660#0" expanded="false" />
-                <element signature="e#4666#4767#0" expanded="false" />
-                <element signature="e#4773#4871#0" expanded="false" />
-                <element signature="e#4877#4982#0" expanded="false" />
-                <element signature="e#4988#5044#0" expanded="false" />
-                <element signature="e#5050#5252#0" expanded="false" />
-                <element signature="e#5258#5461#0" expanded="false" />
-                <element signature="e#5467#5770#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/doc/main.md">
-          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.05263158">
-                <caret line="1" column="60" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/Data/Scripts/game.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="button.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controls/button.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="95" column="3" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="skin.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/skin.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rgui.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/rgui.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event_manger.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/event_manger.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="title_view.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/example/Data/Scripts/views/title_view.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="base.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/base.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#424#584#0" expanded="false" />
+                    <element signature="e#590#750#0" expanded="false" />
+                    <element signature="e#756#897#0" expanded="false" />
+                    <element signature="e#903#1095#0" expanded="false" />
+                    <element signature="e#1101#1301#0" expanded="false" />
+                    <element signature="e#1307#1588#0" expanded="false" />
+                    <element signature="e#1594#1789#0" expanded="false" />
+                    <element signature="e#1795#1977#0" expanded="false" />
+                    <element signature="e#1983#2177#0" expanded="false" />
+                    <element signature="e#2183#2371#0" expanded="false" />
+                    <element signature="e#2377#2572#0" expanded="false" />
+                    <element signature="e#2578#2697#0" expanded="false" />
+                    <element signature="e#2703#3429#0" expanded="false" />
+                    <element signature="e#3471#3906#0" expanded="false" />
+                    <element signature="e#4079#4234#0" expanded="false" />
+                    <element signature="e#4240#4308#0" expanded="false" />
+                    <element signature="e#4314#4335#0" expanded="false" />
+                    <element signature="e#4341#4443#0" expanded="false" />
+                    <element signature="e#4449#4558#0" expanded="false" />
+                    <element signature="e#4564#4660#0" expanded="false" />
+                    <element signature="e#4666#4767#0" expanded="false" />
+                    <element signature="e#4773#4871#0" expanded="false" />
+                    <element signature="e#4877#4982#0" expanded="false" />
+                    <element signature="e#4988#5044#0" expanded="false" />
+                    <element signature="e#5050#5252#0" expanded="false" />
+                    <element signature="e#5258#5461#0" expanded="false" />
+                    <element signature="e#5467#5770#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/doc/main.md">
+              <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+                <state />
+              </provider>
+              <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+                <state split_layout="FIRST">
+                  <first_editor vertical-scroll-proportion="0.5660036">
+                    <caret line="17" column="18" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="18" />
+                    <folding />
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="core_plus.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/core_plus/core_plus.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="430" column="32" selection-start-line="430" selection-start-column="32" selection-end-line="430" selection-end-column="32" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="bitmap2png.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/core_plus/bitmap2png.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
+                  <folding>
+                    <element signature="e#3951#4097#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="game.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/example/Data/Scripts/game.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="button.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/controls/button.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="95" column="3" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="skin.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/skin.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="rgui.rb" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/rgui.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="rgui.rb" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/rgui.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="1.2438625">
+                  <caret line="38" column="37" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="37" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -180,8 +210,10 @@
         <option value="$PROJECT_DIR$/lib/core_plus/input.rb" />
         <option value="$PROJECT_DIR$/src/event_manger.rb" />
         <option value="$PROJECT_DIR$/src/controls/button.rb" />
-        <option value="$PROJECT_DIR$/src/rgui.rb" />
         <option value="$PROJECT_DIR$/src/skin.rb" />
+        <option value="$PROJECT_DIR$/lib/core_plus/core_plus.rb" />
+        <option value="$PROJECT_DIR$/lib/core_plus/bitmap2png.rb" />
+        <option value="$PROJECT_DIR$/src/rgui.rb" />
         <option value="$PROJECT_DIR$/doc/main.md" />
       </list>
     </option>
@@ -241,6 +273,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rgui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rgui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rgui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rgui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core_plus" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -443,10 +507,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1366" height="744" extended-state="7" />
+    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24232633" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.365105" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -551,6 +615,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -625,21 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/core_plus/core_plus.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="215" column="22" selection-start-line="215" selection-start-column="22" selection-end-line="215" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/core_plus/bitmap2png.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/database/csv.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -696,13 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/core_plus/input.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39215687">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/event_manger.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -715,14 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rgui.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -795,14 +830,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/core_plus/core_plus.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="430" column="32" selection-start-line="430" selection-start-column="32" selection-end-line="430" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/core_plus/bitmap2png.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
+          <folding>
+            <element signature="e#3951#4097#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/core_plus/input.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27210885">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rgui.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/doc/main.md">
       <provider editor-type-id="MultiMarkdownFxPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.05263158">
-            <caret line="1" column="60" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
+          <first_editor vertical-scroll-proportion="0.5660036">
+            <caret line="17" column="18" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="18" />
             <folding />
           </first_editor>
           <second_editor />
