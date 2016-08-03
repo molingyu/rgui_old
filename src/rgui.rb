@@ -9,7 +9,7 @@ module RGUI
   class << self
     
     attr_reader :NEXT_ID
-    attr_accessor :MOUSE?, :KEYBOARD?, :PATH, :CONTROLS, :SKIN_PATH
+    attr_accessor :MOUSE, :KEYBOARD, :PATH, :CONTROLS, :SKIN_PATH
 
     def get_id
       RGUI.NEXT_ID += 1
@@ -63,10 +63,10 @@ module RGUI
     end
 
     def init
-      RGUI.MOUSE? = true
-      RGUI.KEYBOARD? = true
-      RGUI.CONTROLS = 0
-      RGUI.NEXT_ID = 0
+      @MOUSE = true
+      @KEYBOARD = true
+      @CONTROLS = 0
+      @NEXT_ID = 0
       auto_load
       say_hello
     end

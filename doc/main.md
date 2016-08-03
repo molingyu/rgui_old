@@ -6,8 +6,8 @@ RGUI通过Base类定义了UI控件的公共属性和方法，以及控件的整�
 ## 变量
 | 项目       |  数量                     |
 | --------  | -------------------------|
-|MOUSE?　　　|是否启动鼠标支持，默认为true。|
-|KEYBOARD?　|是否启动键盘支持，默认为true。|
+|MOUSE 　　　|是否启动鼠标支持，默认为true。|
+|KEYBOARD 　|是否启动键盘支持，默认为true。|
 |CONTROLS   |控件数，通过``auto_load``方法自动统计载入的GUI控件数 |
 |PATH       |整个GUI代码所在位置（可以为相对位置），用于``auto_load``方法。|
 |SKIN_PATH  |皮肤文件所在位置，用于``Skin``模块载入皮肤。|
@@ -17,7 +17,7 @@ RGUI通过Base类定义了UI控件的公共属性和方法，以及控件的整�
 
 ### hit(x, y, rect)
 
-### border
+### border(min, max, val)
 
 # RGUI::Base RGUI的控件的核心
 
