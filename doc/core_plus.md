@@ -24,26 +24,44 @@
 ### Bitmaps \[RW\]
 序图动画的帧列表，为一个Bitmap数组。其顺序决定了序图播放时的顺序。
 ## 类方法
-### new(bitmaps[, viewport])
-
+### new(bitmaps\[, viewport\])
+生成一个Animation对象。必要时指定一个显示端口（Viewport）。
+方法
+``bitmaps``:帧动画的帧图像数组。
+``viewport``:可选，Animation对象的显示端口。
 ## 实例方法
 ### play(x, y, frame_speed, fist_frame, end_frame[, reverse[, loop]])
-
+从指定帧开始以指定帧速到结束帧播放帧动画。可反转，可循环。
 ### frame
-
+获取当前帧的Bitmap对象。
 ### update
+更新，原则上每帧调用一次。
 
 # Bitmap
-
 ## 实例方法
 ### cut_bitmap(width, height, type)
+图片分割，将图片切割成指定大小并返回一个Bitmap数组。切割方式取决于type参数。
+``width``:分割后新图片的宽度。
+``height``:分割后新图片的高度。
+``type``:分割方式。0按行分割；1按列分割；2先按行分割，再按列分割；3先按列分割，再按行分割。
 
 ### cut_bitmap_conf(config)
+图片分割，将图片按参数数组所指定的大小进行分割并返回一个Bitmap数组。不同于cut_bitmap的是，分割后的图片大小并不一定相等
+``config``:分割图片时用到的参数。其值为一个形如``[..., [x, y, width, height], ...]``的记录每个分割后图片位置的二重嵌套数组。
 
 ### scale9bitmap(a, b, c, d, width, height)
+以九宫格形式返回指定大小的新的Bitmap对象。
+参数说明:
+[scale9](./res/scale6.png)
 
 ### draw_line(x1, y1, x2, y2, color)
-画
+在Bitmap对象的指定位置画线。
+``x1``:起点x坐标。
+``y1``:起点y坐标。
+``x2``:终点x坐标。
+``y2``:终点y坐标。
+``color``:线条颜色(为Color对象)。
+
 ### save_png(filename)
 将Bitmap对象保存为png。
 ``filename``:保存文件的地址。

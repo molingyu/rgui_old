@@ -561,7 +561,7 @@ end
 #-------------------------------------------------------------------------------
 # Methods:
 #-------------------------------------------------------------------------------
-#   play(x, y, frame_speed, fist_frame, end_frame, reverse = false, loop = false)
+#   play(x, y, frame_speed, start_frame, end_frame, reverse = false, loop = false)
 #     以指定帧速播放帧动画，播放区间由起始帧和结束帧指定，可循环和反向播放。
 #     obj:欲添加的对象。
 #-------------------------------------------------------------------------------
@@ -583,15 +583,15 @@ class Animation < Sprite
     @status = 0
   end
 
-  def play(x, y, frame_speed, fist_frame, end_frame, reverse = false, loop = false)
-    raise "Error:结束帧大于起始帧！(#{fist_frame},#{end_frame})" if fist_frame > end_frame
+  def play(x, y, frame_speed, start_frame, end_frame, reverse = false, loop = false)
+    raise "Error:结束帧大于起始帧！(#{start_frame},#{end_frame})" if start_frame > end_frame
     @status = 1
     @reverse = reverse
     @loop = loop
-    @fist_frame = (!@reverse ? fist_frame : end_frame)
-    @end_frame = (@reverse ? fist_frame : end_frame)
+    @fist_frame = (!@reverse ? start_frame : end_frame)
+    @end_frame = (@reverse ? start_frame : end_frame)
     @index = @fist_frame
-    @num = end_frame - fist_frame
+    @num = end_frame - start_frame
     @frame_speed = frame_speed
     self.bitmap = @bitmaps[@index]
     self.x = x
