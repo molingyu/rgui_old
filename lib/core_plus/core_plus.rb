@@ -1,9 +1,109 @@
 #encoding: utf-8
 #author: shitake
 #data: 10-12-20
+
+module API
+
+    @api_cache = {}
+
+    def self.to_api(str)
+      @api_cache[str] = Win32API.new(*str.split('|')) unless @api_cache.include? str
+      @api_cache[str]
+    end
+
+    #--------------------------------------------------------------------------
+    # ● 需要的 Windows API 函数
+    #--------------------------------------------------------------------------
+    GetWindowThreadProcessId = self.to_api('user32|GetWindowThreadProcessId|LP|L')
+    GetWindow = self.to_api('user32|GetWindow|LL|L')
+    GetClassName = self.to_api('user32|GetClassName|LPL|L')
+    GetCurrentThreadId = self.to_api('kernel32|GetCurrentThreadId|V|L')
+    GetForegroundWindow = self.to_api('user32|GetForegroundWindow|V|L')
+
+    #--------------------------------------------------------------------------
+    # ● 获取窗口句柄
+    #--------------------------------------------------------------------------
+    def self.get_hWnd
+      # 获取调用线程（RM 的主线程）的进程标识
+      threadID = GetCurrentThreadId.call
+      # 获取 Z 次序中最靠前的窗口
+      hWnd = GetWindow.call(GetForegroundWindow.call, 0)
+      # 枚举所有窗口
+      while hWnd != 0
+        # 如果创建该窗口的线程标识匹配本线程标识
+        if threadID == GetWindowThreadProcessId.call(hWnd, 0)
+          # 分配一个 11 个字节的缓冲区
+          className = ' ' * 11
+          # 获取该窗口的类名
+          GetClassName.call(hWnd, className, 12)
+          # 如果匹配 RGSS Player 则跳出循环
+          break if className == 'RGSS Player'
+        end
+        # 获取下一个窗口
+        hWnd = GetWindow.call(hWnd, 2)
+      end
+      hWnd
+    end
+
+end
+
+class String
+  #--------------------------------------------------------------------------
+  # ●
+  #--------------------------------------------------------------------------
+  CP_ACP = 0
+  CP_UTF8 = 65001
+  #--------------------------------------------------------------------------
+  # ●
+  #--------------------------------------------------------------------------
+  def u2s
+    m2w = API.to_api 'kernel32|MultiByteToWideChar|ilpipi|i'
+    w2m = API.to_api 'kernel32|WideCharToMultiByte|ilpipipp|i'
+
+    len = m2w.call(CP_UTF8, 0, self, -1, nil, 0)
+    buf = "\0" * (len*2)
+    m2w.call(CP_UTF8, 0, self, -1, buf, buf.size/2)
+
+    len = w2m.call(CP_ACP, 0, buf, -1, nil, 0, nil, nil)
+    ret = "\0" * len
+    w2m.call(CP_ACP, 0, buf, -1, ret, ret.size, nil, nil)
+
+     ret
+  end
+  #--------------------------------------------------------------------------
+  # ●
+  #--------------------------------------------------------------------------
+  def s2u
+    m2w = API.to_api 'kernel32|MultiByteToWideChar|ilpipi|i'
+    w2m = API.to_api 'kernel32|WideCharToMultiByte|ilpipipp|i'
+
+    len = m2w.call(CP_ACP, 0, self, -1, nil, 0)
+    buf = "\0" * (len*2)
+    m2w.call(CP_ACP, 0, self, -1, buf, buf.size/2)
+
+    len = w2m.call(CP_UTF8, 0, buf, -1, nil, 0, nil, nil)
+    ret = "\0" * len
+    w2m.call(CP_UTF8, 0, buf, -1, ret, ret.size, nil, nil)
+
+    ret
+  end
+  #--------------------------------------------------------------------------
+  # ●
+  #--------------------------------------------------------------------------
+  def s2u!
+    self[0,length] = s2u
+  end
+  #--------------------------------------------------------------------------
+  # ●
+  #--------------------------------------------------------------------------
+  def u2s!
+    self[0, length] = u2s
+  end
+end
+
 ##==============================================================================
 # Class Numeric
-#=============================================================================== 
+#===============================================================================
 # Methods:
 #-------------------------------------------------------------------------------
 #   fpart
@@ -14,10 +114,10 @@
 ##==============================================================================
 
 class Numeric
-  
+
   #获取小数部分
   def fpart
-    self - self.to_i 
+    self - self.to_i
   end
 
   # 1 - 小数部分
@@ -29,7 +129,7 @@ end
 
 ##==============================================================================
 # Class Bitmap
-#=============================================================================== 
+#===============================================================================
 # Methods:
 #-------------------------------------------------------------------------------
 #   cut_bitmap(width, height, type)
@@ -46,10 +146,10 @@ end
 ##==============================================================================
 
 class Bitmap
-  
+
   # 分割图片
   def cut_bitmap(width, height, type)
-		case type
+    case type
       when 0
         bitmaps = cut_row(width, height)
       when 1
@@ -61,19 +161,19 @@ class Bitmap
       else
         raise "Error: Bitmap cut type error(#{type})."
     end
-		bitmaps
-	end
-
-    # 按参数分割图片
-  def cut_bitmap_conf(config)
-		bitmaps = []
-		config.each do |i|
-			bitmap = Bitmap.new(i[2], i[3])
-			bitmap.blt(0, 0, self, Rect.new(i[0],i[1], i[2], i[3]))
-			bitmaps.push(bitmap)
-		end
     bitmaps
-	end
+  end
+
+  # 按参数分割图片
+  def cut_bitmap_conf(config)
+    bitmaps = []
+    config.each do |i|
+      bitmap = Bitmap.new(i[2], i[3])
+      bitmap.blt(0, 0, self, Rect.new(i[0],i[1], i[2], i[3]))
+      bitmaps.push(bitmap)
+    end
+    bitmaps
+  end
 
   def cut_row(width, height)
     number = self.width / width
@@ -85,9 +185,9 @@ class Bitmap
       bitmaps.push(bitmap)
     end
     bitmaps
-	end
+  end
 
-	def cut_rank(width, height)
+  def cut_rank(width, height)
     number = self.height / height
     bitmaps = []
     number.times do |i|
@@ -97,22 +197,22 @@ class Bitmap
       bitmaps.push(bitmap)
     end
     bitmaps
-	end
+  end
 
-	def cut_row_rank(width, height)
+  def cut_row_rank(width, height)
     bitmaps = []
     w_bitmaps = cut_row(width, self.height)
     w_bitmaps.each{ |bitmap| bitmaps += bitmap.cut_rank(width, height) }
     bitmaps
-	end
+  end
 
-	def cut_rank_row(width, height)
+  def cut_rank_row(width, height)
     bitmaps = []
     h_bitmaps = cut_rank(self.width, height)
     h_bitmaps.each{ |bitmap| bitmaps += bitmap.cut_row(width, height) }
     bitmaps
-	end
-  
+  end
+
   # 平铺
   def scale9bitmap(a, b, c, d, width, height)
     raise "width值太小!(#{width} < #{self.width})" if width < self.width
@@ -120,15 +220,15 @@ class Bitmap
     w = self.width - a - b
     h = self.height - c - d
     config = [
-    [0, 0, a, c],
-    [a, 0, w, c],
-    [self.width - b, 0, b, c], 
-    [0, c, a, h],
-    [a, c, w, h],
-    [self.width - b, c, b, h], 
-    [0, self.height - d, a, d],
-    [a, self.height - d, w, d],
-    [self.width - b, self.height - d, b, d]
+        [0, 0, a, c],
+        [a, 0, w, c],
+        [self.width - b, 0, b, c],
+        [0, c, a, h],
+        [a, c, w, h],
+        [self.width - b, c, b, h],
+        [0, self.height - d, a, d],
+        [a, self.height - d, w, d],
+        [self.width - b, self.height - d, b, d]
     ]
     bitmaps = cut_bitmap_conf(config)
     w_number = (width - a - b) / w
@@ -151,7 +251,7 @@ class Bitmap
       bitmap.blt(a + n * w, height - d, bitmaps[7], bitmaps[7].rect)
     end
     bitmap.blt(a + w_number * w, 0, bitmaps[1], Rect.new(0, 0, w_yu, c))
-    bitmap.blt(a + w_number * w, height - d, bitmaps[7], Rect.new(0, 0, w_yu, d)) 
+    bitmap.blt(a + w_number * w, height - d, bitmaps[7], Rect.new(0, 0, w_yu, d))
     #h
     h_number.times do |n|
       bitmap.blt(0, c + n * h, bitmaps[3], bitmaps[3].rect)
@@ -166,7 +266,7 @@ class Bitmap
     bitmap.blt(width - b, height - d, bitmaps[8], bitmaps[8].rect)
     bitmap
   end
-  
+
   #该函数来自白菜组基础脚本，作者Sion
   def draw_line(x1, y1, x2, y2, color)
     dx = x2 - x1
@@ -183,25 +283,25 @@ class Bitmap
     set_pixel(x1, y1, color)
     set_pixel(x2, y2, color)
     r = color.red
-		g = color.green
-		b = color.blue
-		a = color.alpha
+    g = color.green
+    b = color.blue
+    a = color.alpha
     gradient = dy.fdiv(dx)
     intery = y1 + gradient
-    for x in (x1 + 1)..(x2 - 1)
+    ((x1 + 1)..(x2 - 1)).each do |x|
       y1 = intery.to_i
       y2 = intery.ceil
-      set_pixel(x, y1, Color.new(r,g,b, intery.rfpart * a))
-      set_pixel(x, y2, Color.new(r,g,b, intery.fpart * a)) if y1 != y2
+      set_pixel(x, y1, Color.new(r, g, b, intery.rfpart * a))
+      set_pixel(x, y2, Color.new(r, g, b, intery.fpart * a)) if y1 != y2
       intery = intery + gradient
     end
   end
 
-end 
+end
 
 ##==============================================================================
 # Class: Color
-#=============================================================================== 
+#===============================================================================
 # Constants:
 #-------------------------------------------------------------------------------
 # 十基本色：
@@ -234,7 +334,7 @@ end
 ##==============================================================================
 
 class Color
-  
+
   #Common Color 10
   RED = Color.new(255, 0 ,0)
   ORANGE = Color.new(255, 165, 0)
@@ -306,31 +406,31 @@ class Color
   GL30 = Color.new(232, 232, 232)
   GL31 = Color.new(240, 240, 240)
   GL32 = Color.new(248, 248, 248)
-  
+
   def self.str2color(str)
     regexp = /rgba\(( *[0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]),( *[0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]),( *[0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]),( *[0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\)/
     raise "Error:Color string error(#{str})." if str[regexp]
     Color.new($1.to_i, $2.to_i, $3.to_i, $4.to_i)
   end
-  
+
   def self.hex2color(hex)
     regexp = /#([0-9a-f]|[0-9a-f][0-9a-f])([0-9a-f]|[0-9a-f][0-9a-f])([0-9a-f]|[0-9a-f][0-9a-f])/
     raise "Error:Color hex string error(#{hex})." if hex[regexp]
     Color.new($1.to_i(16), $2.to_i(16), $3.to_i(16))
   end
-  
+
   def inverse
     Color.new(255 - self.red, 255 - self.green, 255 - self.blue, self.alpha)
   end
-  
+
   def to_rgba
-    "rgba(#{self.red}, #{self.green}, #{self.blue}, #{self.alpha})"
+    "rgba(#{self.red.to_i}, #{self.green.to_i}, #{self.blue.to_i}, #{self.alpha.to_i})"
   end
-  
+
   def to_hex
     sprintf('#%02x%02x%02x', self.red, self.green, self.blue)
   end
-  
+
 end
 
 ##==============================================================================
@@ -358,7 +458,7 @@ end
 ##==============================================================================
 
 class Rect
-  
+
   def self.array2rect(array)
     Rect.new(array[0], array[1], array[2], array[3])
   end
@@ -374,7 +474,7 @@ class Rect
   def rect_hit(rect)
     rect.x < self.x + self.width || rect.y < self.y + self.height || rect.x + rect.width > self.x || rect.y + rect.height > self.y
   end
-  
+
 end
 
 ##==============================================================================
@@ -400,23 +500,23 @@ end
 ##==============================================================================
 
 class Viewport
-  
+
   attr_reader :list
-  
+
   alias :shitake_core_plus_initialize :initialize
-  
-	def initialize(*arg)
-		shitake_core_plus_initialize(*arg)
-		@list = []
-	end
 
-	def add_child(obj)
-		@list.push(obj)
-	end
+  def initialize(*arg)
+    shitake_core_plus_initialize(*arg)
+    @list = []
+  end
 
-	def remove_child(obj)
-		@list.delete(obj)
-	end
+  def add_child(obj)
+    @list.push(obj)
+  end
+
+  def remove_child(obj)
+    @list.delete(obj)
+  end
 
 end
 
@@ -427,17 +527,17 @@ end
 class Sprite
 
   alias :shitake_core_plus_initialize :initialize
-  
+
   def initialize(viewport = nil)
     shitake_core_plus_initialize(viewport)
     viewport.add_child(self) if viewport
   end
 
   alias :shitake_core_plus_viewport= :viewport=
-  
+
   def viewport=(value)
     self.viewport.remove_child(self) if self.viewport
-    shitake_core_plus_viewport=(value)
+    self.shitake_core_plus_viewport = value
     value.add_child(self)
   end
 
@@ -471,10 +571,10 @@ end
 ##==============================================================================
 
 class Animation < Sprite
-  
+
   attr_reader :status
   attr_accessor :bitmaps
-  
+
   def initialize(bitmaps, viewport = nil)
     super(viewport)
     @bitmaps = bitmaps
@@ -526,16 +626,4 @@ class Animation < Sprite
     end
   end
 
-end
-
-module Input
-  
-  class << self
-    
-    def mouse_pos
-      
-    end
-    
-  end
-  
 end

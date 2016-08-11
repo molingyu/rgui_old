@@ -1,0 +1,175 @@
+# CorePlus
+所谓core_plus是对RM原版的RGSS3的一些增强，这些增强大体分为两类：一类是对已有类的增强，另一类则是新添加的类。
+
+# List
+* API
+* Animation
+* Bitmap
+* Color
+* Mouse
+* Numeric
+* Rect
+* Input
+* Sprite
+* String
+* Viewport
+
+# API
+
+# Animation
+序图动画类。``Sprite``类的子类。提供序图动画的功能。
+## 属性
+### status \[R\]
+当前序图动画对象的状态，只读。其值为0或1。正在播放时为1，其余为0。
+### Bitmaps \[RW\]
+序图动画的帧列表，为一个Bitmap数组。其顺序决定了序图播放时的顺序。
+## 类方法
+### new(bitmaps[, viewport])
+
+## 实例方法
+### play(x, y, frame_speed, fist_frame, end_frame[, reverse[, loop]])
+
+### frame
+
+### update
+
+# Bitmap
+
+## 实例方法
+### cut_bitmap(width, height, type)
+
+### cut_bitmap_conf(config)
+
+### scale9bitmap(a, b, c, d, width, height)
+
+### draw_line(x1, y1, x2, y2, color)
+画
+### save_png(filename)
+将Bitmap对象保存为png。
+``filename``:保存文件的地址。
+
+# Color
+## 常量
+### 十二基本色
+|名称|说明|值|示例|
+| --------  | ------|------|-------------|
+|RED| 红色|rgb(255, 0 ,0)|![img](./res/core_plus_color_red.png)|
+|ORANGE| 橙色|rgba(255, 165, 0, 255)|![img](./res/core_plus_color_orange.png)|
+|YELLOW|黄|rgba(255, 255, 0, 255)|![img](./res/core_plus_color_yellow.png)|
+|GREEN|绿|rgba(0, 255, 0, 255)|![img](./res/core_plus_color_green.png)|
+|CHING|青|rgba(0, 255, 255, 255)|![img](./res/core_plus_color_ching.png)|
+|BLUE|蓝|rgba(0, 0, 255, 255)|![img](./res/core_plus_color_blue.png)|
+|PURPLE|紫|rgba(139, 0, 255, 255)|![img](./res/core_plus_color_purple.png)|
+|BLACK|黑|rgba(0, 0, 0, 255)|![img](./res/core_plus_color_black.png)|
+|WHITE|白|rgba(255, 255, 255, 255)|![img](./res/core_plus_color_white.png)|
+|GREY|灰|rgba(100, 100, 100, 255)|![img](./res/core_plus_color_grey.png)|
+
+### 十二色环
+|名称|值|示例|
+| --------  | ------------|-------------|
+|CR1|rgba(230, 3, 18, 255)|![img](./res/core_plus_color_cr1.png)|
+|CR2|rgba(233, 65, 3, 255)|![img](./res/core_plus_color_cr2.png)|
+|CR3|rgba(240, 126, 15, 255)|![img](./res/core_plus_color_cr3.png)|
+|CR4|rgba(240, 186, 26, 255)|![img](./res/core_plus_color_cr4.png)|
+|CR5|rgba(234, 246, 42, 255)|![img](./res/core_plus_color_cr5.png)|
+|CR6|rgba(183, 241, 19, 255)|![img](./res/core_plus_color_cr6.png)|
+|CR7|rgba(122, 237, 0, 255)|![img](./res/core_plus_color_cr7.png)|
+|CR8|rgba(62, 234, 2, 255)|![img](./res/core_plus_color_cr8.png)|
+|CR9|rgba(50, 198, 18, 255)|![img](./res/core_plus_color_cr9.png)|
+|CR10|rgba(51, 202, 73, 255)|![img](./res/core_plus_color_cr10.png)|
+|CR11|rgba(56, 203, 135, 255)|![img](./res/core_plus_color_cr11.png)|
+|CR12|rgba(60, 194, 197, 255)|![img](./res/core_plus_color_cr12.png)|
+
+### 三十二灰阶
+|名称|值|示例|
+| --------  | ------------|---------|
+|GL1|rgba(0, 0, 0, 255)|![img](./res/core_plus_color_gl1.png)|
+|GL2|rgba(8, 8, 8, 255)|![img](./res/core_plus_color_gl2.png)|
+|GL3|rgba(16, 16, 16, 255)|![img](./res/core_plus_color_gl3.png)|
+|GL4|rgba(24, 24, 24, 255)|![img](./res/core_plus_color_gl4.png)|
+|GL5|rgba(32, 32, 32, 255)|![img](./res/core_plus_color_gl5.png)|
+|GL6|rgba(40, 40, 40, 255)|![img](./res/core_plus_color_gl6.png)|
+|GL7|rgba(48, 48, 48, 255)|![img](./res/core_plus_color_gl7.png)|
+|GL8|rgba(56, 56, 56, 255)|![img](./res/core_plus_color_gl8.png)|
+|GL9|rgba(64, 64, 64, 255)|![img](./res/core_plus_color_gl9.png)|
+|GL10|rgba(72, 72, 72, 255)|![img](./res/core_plus_color_gl10.png)|
+|GL11|rgba(80, 80, 80, 255)|![img](./res/core_plus_color_gl11.png)|
+|GL12|rgba(88, 88, 88, 255)|![img](./res/core_plus_color_gl12.png)|
+|GL13|rgba(96, 96, 96, 255)|![img](./res/core_plus_color_gl13.png)|
+|GL14|rgba(104, 104, 104, 255)|![img](./res/core_plus_color_gl14.png)|
+|GL15|rgba(112, 112, 112, 255)|![img](./res/core_plus_color_gl15.png)|
+|GL16|rgba(120, 120, 120, 255)|![img](./res/core_plus_color_gl16.png)|
+|GL17|rgba(128, 128, 128, 255)|![img](./res/core_plus_color_gl17.png)|
+|GL18|rgba(136, 136, 136, 255)|![img](./res/core_plus_color_gl18.png)|
+|GL19|rgba(144, 144, 144, 255)|![img](./res/core_plus_color_gl19.png)|
+|GL20|rgba(152, 152, 152, 255)|![img](./res/core_plus_color_gl20.png)|
+|GL21|rgba(160, 160, 160, 255)|![img](./res/core_plus_color_gl21.png)|
+|GL22|rgba(168, 168, 168, 255)|![img](./res/core_plus_color_gl22.png)|
+|GL23|rgba(176, 176, 176, 255)|![img](./res/core_plus_color_gl23.png)|
+|GL24|rgba(184, 184, 184, 255)|![img](./res/core_plus_color_gl24.png)|
+|GL25|rgba(192, 192, 192, 255)|![img](./res/core_plus_color_gl25.png)|
+|GL26|rgba(200, 200, 200, 255)|![img](./res/core_plus_color_gl26.png)|
+|GL27|rgba(208, 208, 208, 255)|![img](./res/core_plus_color_gl27.png)|
+|GL28|rgba(216, 216, 216, 255)|![img](./res/core_plus_color_gl28.png)|
+|GL29|rgba(224, 224, 224, 255)|![img](./res/core_plus_color_gl29.png)|
+|GL30|rgba(232, 232, 232, 255)|![img](./res/core_plus_color_gl30.png)|
+|GL31|rgba(240, 240, 240, 255)|![img](./res/core_plus_color_gl31.png)|
+|GL32|rgba(248, 248, 248, 255)|![img](./res/core_plus_color_gl32.png)|
+
+## 类方法
+### str2color(str)
+将一个形如'rgba(xx, xx, xx, xx)'的字符串转换为一个Color对象。
+``str``:欲转换的字符串。
+### hex2color(hex)
+从十六进制颜色码创建Color对象。
+``hex``:欲转换的十六进制颜色码(为字符串)。
+## 实例方法
+### inverse
+取该颜色的反色。
+### to_rgba
+以``rgba(xx, xx, xx, xx, xx)``的形式输出该颜色值。
+### to_hex
+输出该对象所对应的十六进制颜色码，忽略alpha值。
+
+# Mouse
+
+# Numeric
+
+## 实例方法
+### fpart
+获取该数的小数部分。
+### rfpart
+获取该数的1 - 小数部分。
+
+# Rect
+## 类方法
+### array2rect(array)
+将一个形如``[x, y, width, height]``的数组转换为一个Rect对象。
+``array``:欲转换的数组。
+## 实例方法
+### rect2array
+将一个rect对象转换为形如[x, y, width, height]形式的数组。
+### point_hit(x, y)
+判断点是否在rect内，若在则返回true，否则false。
+``x``:欲检测点的x坐标。
+``y``:欲检测点的y坐标。
+### rect_hit(rect)
+判断两个rect是否相交，若相交则返回true，否则false。
+``rect``:欲判断的另一个rect对象。
+
+# Input
+#
+
+# String
+## 实例方法
+### u2s
+将字符串编码从utf-8转换为系统编码，返回新字符串。
+### u2s!
+将字符串编码从utf-8转换为系统编码。
+### s2u
+将字符串编码从系统编码转换为utf-8。返回新字符串。
+### s2u!
+将字符串编码从系统编码转换为utf-8。
+
+# Viewport
+

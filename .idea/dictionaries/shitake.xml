@@ -2,11 +2,15 @@
   <dictionary name="shitake">
     <words>
       <w>dant</w>
+      <w>fpart</w>
       <w>idat</w>
       <w>iend</w>
       <w>ihdr</w>
+      <w>intery</w>
       <w>malloc</w>
       <w>memcpy</w>
+      <w>rfpart</w>
+      <w>sion</w>
     </words>
   </dictionary>
 </component>
