@@ -19,7 +19,7 @@ module API
     GetClassName = self.to_api('user32|GetClassName|LPL|L')
     GetCurrentThreadId = self.to_api('kernel32|GetCurrentThreadId|V|L')
     GetForegroundWindow = self.to_api('user32|GetForegroundWindow|V|L')
-
+    GetClientRect = self.to_api('user32|GetClientRect|lp|i')
     #--------------------------------------------------------------------------
     # ● 获取窗口句柄
     #--------------------------------------------------------------------------
@@ -43,6 +43,12 @@ module API
         hWnd = GetWindow.call(hWnd, 2)
       end
       hWnd
+    end
+
+    def self.get_rect
+      rect = [0, 0, 0, 0].pack('l4')
+      GetClientRect.call(API.get_hWnd, rect)
+      Rect.array2rect(rect.unpack('l4'))
     end
 
 end
@@ -468,7 +474,8 @@ class Rect
   end
 
   def point_hit(x, y)
-    self.x <= x <= self.width && self.y <= y <= self.height
+
+    self.x <= x && x <= self.width && self.y <= y && y <= self.height
   end
 
   def rect_hit(rect)
@@ -601,6 +608,11 @@ class Animation < Sprite
 
   def frame
     @index
+  end
+
+  def dispose
+    super
+    @bitmaps.each{ |bitmap| bitmap.dispose unless bitmap.disposed? }
   end
 
   def update

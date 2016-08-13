@@ -17,7 +17,7 @@
 # API
 
 # Animation
-序图动画类。``Sprite``类的子类。提供序图动画的功能。
+序图动画类。``Sprite``类的子类。提供序图动画的功能。父类是Sprite。
 ## 属性
 ### status \[R\]
 当前序图动画对象的状态，只读。其值为0或1。正在播放时为1，其余为0。
@@ -31,22 +31,42 @@
 ``viewport``:可选，Animation对象的显示端口。
 ## 实例方法
 ### play(x, y, frame_speed, fist_frame, end_frame[, reverse[, loop]])
-从指定帧开始以指定帧速到结束帧播放帧动画。可反转，可循环。
+从指定帧开始以指定帧速到结束帧播放帧动画。可反向播放，可指定循环。
+
+``x``:帧动画的显示位置的x坐标。
+
+``y``:帧动画的显示位置的y坐标。
+
+``frame_speed``:帧动画的播放速度，值为大于0的整数。数值越大速度越慢。
+
+``start_frame``:起始帧的序号，第一帧从0开始计数。
+
+``end_frame``:结束帧的序号。
+
+``reverse``:是否反向播放，默认为false，若为true，则从结束帧往起始帧播放。
+
+``loop``:是否开启循环，默认为false，若为true，则会循环播放，知道重新播放或被释放。
 ### frame
 获取当前帧的Bitmap对象。
 ### update
 更新，原则上每帧调用一次。
+### dispose
+释放掉Animation对象。原理等同于Sprite的dispose方法，只不过会将整个bitmaps都释放掉。
 
 # Bitmap
 ## 实例方法
 ### cut_bitmap(width, height, type)
 图片分割，将图片切割成指定大小并返回一个Bitmap数组。切割方式取决于type参数。
+
 ``width``:分割后新图片的宽度。
+
 ``height``:分割后新图片的高度。
+
 ``type``:分割方式。0按行分割；1按列分割；2先按行分割，再按列分割；3先按列分割，再按行分割。
 
 ### cut_bitmap_conf(config)
 图片分割，将图片按参数数组所指定的大小进行分割并返回一个Bitmap数组。不同于cut_bitmap的是，分割后的图片大小并不一定相等
+
 ``config``:分割图片时用到的参数。其值为一个形如``[..., [x, y, width, height], ...]``的记录每个分割后图片位置的二重嵌套数组。
 
 ### scale9bitmap(a, b, c, d, width, height)
@@ -56,14 +76,20 @@
 
 ### draw_line(x1, y1, x2, y2, color)
 在Bitmap对象的指定位置画线。
+
 ``x1``:起点x坐标。
+
 ``y1``:起点y坐标。
+
 ``x2``:终点x坐标。
+
 ``y2``:终点y坐标。
+
 ``color``:线条颜色(为Color对象)。
 
 ### save_png(filename)
 将Bitmap对象保存为png。
+
 ``filename``:保存文件的地址。
 
 # Color
@@ -137,9 +163,11 @@
 ## 类方法
 ### str2color(str)
 将一个形如'rgba(xx, xx, xx, xx)'的字符串转换为一个Color对象。
+
 ``str``:欲转换的字符串。
 ### hex2color(hex)
 从十六进制颜色码创建Color对象。
+
 ``hex``:欲转换的十六进制颜色码(为字符串)。
 ## 实例方法
 ### inverse
@@ -163,16 +191,20 @@
 ## 类方法
 ### array2rect(array)
 将一个形如``[x, y, width, height]``的数组转换为一个Rect对象。
+
 ``array``:欲转换的数组。
 ## 实例方法
 ### rect2array
 将一个rect对象转换为形如[x, y, width, height]形式的数组。
 ### point_hit(x, y)
 判断点是否在rect内，若在则返回true，否则false。
+
 ``x``:欲检测点的x坐标。
+
 ``y``:欲检测点的y坐标。
 ### rect_hit(rect)
 判断两个rect是否相交，若相交则返回true，否则false。
+
 ``rect``:欲判断的另一个rect对象。
 
 # Input
