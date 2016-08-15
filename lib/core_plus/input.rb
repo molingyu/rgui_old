@@ -172,13 +172,13 @@ module Keyboard
       end
     end
 
-    def press?(key)
+    def hold?(key)
       key = key.to_sym if key.class == String
       value = KEY_VALUE[key]
       (@keyboard[value] == 1 || @keyboard[value] == 2) ? true : false
     end
 
-    def trigger?(key)
+    def down?(key)
       key = key.to_sym if key.class == String
       value = KEY_VALUE[key]
       @keyboard[value] == 1 ? true : false
@@ -191,6 +191,8 @@ module Keyboard
     end
 
   end
+
+  init
 
 end
 

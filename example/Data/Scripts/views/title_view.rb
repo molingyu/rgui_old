@@ -16,7 +16,6 @@ class TitleView < View
     @mouse_pos = Sprite.new
     @mouse_pos.bitmap = Bitmap.new(544, 416)
     @mouse_pos.x, @mouse_pos.y = 1, 1
-    Keyboard.init
   end
   
   def update
@@ -33,9 +32,6 @@ class TitleView < View
       @mouse_pos.bitmap.draw_text(10, 0, 100, 24, "x:#{pos[0]}y:#{pos[1]}")
       @pos = pos
     end
-    p "down" if Keyboard.trigger?(:KEY_SPACE)
-    p "hold" if Keyboard.press?(:KEY_SPACE)
-    p "up" if Keyboard.up?(:KEY_SPACE)
   end
 
 end
