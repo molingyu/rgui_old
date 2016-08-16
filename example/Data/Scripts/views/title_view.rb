@@ -34,7 +34,6 @@ class TitleView < View
       @mouse_pos.bitmap.draw_text(10, 0, 100, 24, "x:#{pos[0]}y:#{pos[1]}")
       @pos = pos
     end
-    p 233 if Keyboard.down?(:KEY_HOME)
   end
 
 end
