@@ -9,11 +9,17 @@ module RGUI
 
   class EventManger < Event::EventManger
 
+    def initialize(object)
+      super()
+      @object = object
+      @keyboard_events = []
+    end
+
     def update
       super
       if @object.status && @object.visible
         mouse_update
-        @keyboard_events.each_value { |o| keyboard_update(o) }
+        @keyboard_events.each{ |o| keyboard_update(o) }
       end
     end
 

@@ -30,9 +30,9 @@ module RGUI
     end
 
     def def_event_callback
-      @event.on_mouse('mouse_in'){ self.state = :focus }
-      @event.on_mouse('mouse_out'){ self.state = :default }
-      @event.on_mouse('click'){ self.state = :down }
+      @event.on('mouse_in'){ self.state = :focus }
+      @event.on('mouse_out'){ self.state = :default }
+      @event.on('click'){ self.state = :down }
       @event.on('enable'){ self.state = :default }
       @event.on('disable'){ self.state = :disable }
       @event.on('change_x'){ @sprite.x = @x }

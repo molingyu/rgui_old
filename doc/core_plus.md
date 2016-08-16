@@ -6,15 +6,22 @@
 * Animation
 * Bitmap
 * Color
+* Keyboard
 * Mouse
 * Numeric
 * Rect
-* Input
 * Sprite
 * String
-* Viewport
+* Timer
 
 # API
+## 模块方法
+### to_api(str)
+从形如``Dll名|函数名|参数|返回值|``的字符串创建Win32API对象。
+### get_hwnd
+返回RM的窗口句柄。
+### get_rect
+返回RM窗口在系统中的Rect区域。
 
 # Animation
 序图动画类。``Sprite``类的子类。提供序图动画的功能。父类是Sprite。
@@ -72,7 +79,7 @@
 ### scale9bitmap(a, b, c, d, width, height)
 以九宫格形式返回指定大小的新的Bitmap对象。
 参数说明:
-[scale9](./res/scale6.png)
+![scale9](./res/scale6.png)
 
 ### draw_line(x1, y1, x2, y2, color)
 在Bitmap对象的指定位置画线。
@@ -177,10 +184,133 @@
 ### to_hex
 输出该对象所对应的十六进制颜色码，忽略alpha值。
 
+# Keyboard
+键盘输入模块。
+## 模块方法
+### init
+初始化该模块，无需手动调用。
+### update
+每帧更新，已在Input#update内调用，无需手动调用。
+### press?(key_name)
+键按住，当键处于按住状态时，返回true。
+
+``key_name``:欲判断的键名，可为String或Symbol。
+### down?(key_name)
+键按下，当键按下的瞬间时，返回true。
+
+``key_name``:欲判断的键名，可为String或Symbol。
+### up?(key_name)
+键弹起，当键弹起的瞬间时，返回true。
+
+``key_name``:欲判断的键名，可为String或Symbol。
+## 关于``key_name``
+|key_name|对应按键|
+|--------------|-----------|
+|MOUSE_LB|鼠标左键|
+|MOUSE_RB|鼠标右键|
+|MOUSE_MB|鼠标中键|
+|KEY_BACK|Back键|
+|KEY_TAB|Tab键|
+|KEY_CLEAR|Ctrl键|
+|KEY_ENTER|回车键|
+|KEY_SHIFT|Shift键|
+|KEY_CTRL|Ctrl键|
+|KEY_ALT|Alt键|
+|KEY_PAUSE|Pause Break键|
+|KEY_CAPITAL|Caps Lock键|
+|KEY_ESC|Esc键|
+|KEY_SPACE|Space键|
+|KEY_PRIOR|Page Up键|
+|KEY_NEXT|Page Down键|
+|KEY_END| |
+|KEY_HOME|Home键|
+|KEY_LEFT|Left Arrow键|
+|KEY_UP|Up Arrow键|
+|KEY_RIGHT|Right Arrow键|
+|KEY_DOWN|Down Arrow键|
+|KEY_SELECT| |
+|KEY_EXECUTE| |
+|KEY_INS|Ins键 |
+|KEY_DEL|Del键 |
+|KEY_HELP| |
+|KEY_0|0键|
+|KEY_1|1键 |
+|KEY_2| 2键|
+|KEY_3| 3键|
+|KEY_4| 4键|
+|KEY_5| 5键|
+|KEY_6| 6键|
+|KEY_7| 7键|
+|KEY_8| 8键|
+|KEY_9| 9键|
+|KEY_A|A键 |
+|KEY_B| B键|
+|KEY_C| C键|
+|KEY_D| D键|
+|KEY_E|E键 |
+|KEY_F| F键|
+|KEY_G|G键 |
+|KEY_H| H键|
+|KEY_I| I键|
+|KEY_J| J键|
+|KEY_K| K键|
+|KEY_L| L键|
+|KEY_M| M键|
+|KEY_N| N键|
+|KEY_O| O键|
+|KEY_P| P键|
+|KEY_Q| Q键|
+|KEY_R| R键|
+|KEY_S| S键|
+|KEY_T| T键|
+|KEY_U| U键|
+|KEY_V| V键|
+|KEY_W| W键|
+|KEY_X| X键|
+|KEY_Y| Y键|
+|KEY_Z| Z键|
+|KEY_NUM_0|小键盘0键 |
+|KEY_NUM_1|小键盘1键 |
+|KEY_NUM_2|小键盘2键 |
+|KEY_NUM_3| 小键盘3键|
+|KEY_NUM_4| 小键盘4键|
+|KEY_NUM_5|小键盘5键 |
+|KEY_NUM_6|小键盘6键 |
+|KEY_NUM_7|小键盘7键 |
+|KEY_NUM_8|小键盘8键 |
+|KEY_NUM_9|小键盘9键 |
+|KEY_NULTIPLY|小键盘\*键|
+|KEY_ADD|小键盘+键 |
+|KEY_SEPARATOR|##小键盘 键 |
+|KEY_SUBTRACT|小键盘-键 |
+|KEY_DECIMAL|小键盘.键 |
+|KEY_DIVIDE|小键盘/键 |
+|KEY_F1| F1键|
+|KEY_F2| F3键|
+|KEY_F3| F3键|
+|KEY_F4| F4键|
+|KEY_F5| F5键|
+|KEY_F6| F6键|
+|KEY_F7| F7键|
+|KEY_F8| F8键|
+|KEY_F9| F9键|
+|KEY_F10|F10键 |
+|KEY_F11|F11键 |
+|KEY_F12|F12键 |
+|KEY_NUMLOCK|Num Lock键|
+|KEY_SCROLL|Scroll Lock键 |
+
+
 # Mouse
+鼠标模块。
+## 模块方法
+### get_global_pos
+获取鼠标当前相对于操作系统的坐标，返回值为一个``[x, y]``这样的数组。
+
+### get_pos
+获取鼠标当前相对于RGSS Player窗体的坐标，返回值为一个``[x, y]``这样的数组，窗体之外一律为\[-1, -1\]。
 
 # Numeric
-
 ## 实例方法
 ### fpart
 获取该数的小数部分。
@@ -207,9 +337,6 @@
 
 ``rect``:欲判断的另一个rect对象。
 
-# Input
-#
-
 # String
 ## 实例方法
 ### u2s
@@ -220,6 +347,38 @@
 将字符串编码从系统编码转换为utf-8。返回新字符串。
 ### s2u!
 将字符串编码从系统编码转换为utf-8。
+### to_api
+效果等同于API#to_api。此时转换的字符串为其自身。
 
-# Viewport
-
+# Timer
+## 类方法
+### new
+返回一个新的计时器对象。
+### update
+更新所有存在的计时器对象。
+## 属性
+### status
+返回当前计时器的状态，值为``:run``、``:stop``其中一个。
+## 实例方法
+### start
+开始计时器对象。
+### stop
+暂停计时器对象。
+### after(time){ ... }
+等待指定秒数后执行。此方法会生成并返回一个TimerEvent对象。
+``time``:等待的秒数。
+``block``:执行的动作。
+### every(time){ ... }
+每隔指定秒数后执行。此方法会生成并返回一个TimerEvent对象。
+``time``:等待的秒数。
+``block``:执行的动作。
+### delete_after(object)
+从计时器after_event列表里删除指定的TimerEvent对象。
+``object``:欲删除的对象。
+### delete_every(object)
+从计时器every_event列表里删除指定的TimerEvent对象。
+``object``:欲删除的对象。
+### dispose
+释放计时器对象。
+### update
+更新计时器对象，原则上不需要手动调用。

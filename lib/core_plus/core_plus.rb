@@ -7,23 +7,18 @@ module API
     @api_cache = {}
 
     def self.to_api(str)
-      @api_cache[str] = Win32API.new(*str.split('|')) unless @api_cache.include? str
-      @api_cache[str]
+      @api_cache[str.hash] = Win32API.new(*str.split('|')) unless @api_cache.include? str.hash
+      @api_cache[str.hash]
     end
 
-    #--------------------------------------------------------------------------
-    # ● 需要的 Windows API 函数
-    #--------------------------------------------------------------------------
     GetWindowThreadProcessId = self.to_api('user32|GetWindowThreadProcessId|LP|L')
     GetWindow = self.to_api('user32|GetWindow|LL|L')
     GetClassName = self.to_api('user32|GetClassName|LPL|L')
     GetCurrentThreadId = self.to_api('kernel32|GetCurrentThreadId|V|L')
     GetForegroundWindow = self.to_api('user32|GetForegroundWindow|V|L')
     GetClientRect = self.to_api('user32|GetClientRect|lp|i')
-    #--------------------------------------------------------------------------
-    # ● 获取窗口句柄
-    #--------------------------------------------------------------------------
-    def self.get_hWnd
+
+    def self.get_hwnd
       # 获取调用线程（RM 的主线程）的进程标识
       threadID = GetCurrentThreadId.call
       # 获取 Z 次序中最靠前的窗口
@@ -47,28 +42,24 @@ module API
 
     def self.get_rect
       rect = [0, 0, 0, 0].pack('l4')
-      GetClientRect.call(API.get_hWnd, rect)
+      GetClientRect.call(API.get_hwnd, rect)
       Rect.array2rect(rect.unpack('l4'))
     end
 
 end
 
 class String
-  #--------------------------------------------------------------------------
-  # ●
-  #--------------------------------------------------------------------------
+
   CP_ACP = 0
   CP_UTF8 = 65001
-  #--------------------------------------------------------------------------
-  # ●
-  #--------------------------------------------------------------------------
+
   def u2s
     m2w = API.to_api 'kernel32|MultiByteToWideChar|ilpipi|i'
     w2m = API.to_api 'kernel32|WideCharToMultiByte|ilpipipp|i'
 
     len = m2w.call(CP_UTF8, 0, self, -1, nil, 0)
     buf = "\0" * (len*2)
-    m2w.call(CP_UTF8, 0, self, -1, buf, buf.size/2)
+    m2w.call(CP_UTF8, 0, self, -1, buf, buf.size / 2)
 
     len = w2m.call(CP_ACP, 0, buf, -1, nil, 0, nil, nil)
     ret = "\0" * len
@@ -76,16 +67,14 @@ class String
 
      ret
   end
-  #--------------------------------------------------------------------------
-  # ●
-  #--------------------------------------------------------------------------
+
   def s2u
     m2w = API.to_api 'kernel32|MultiByteToWideChar|ilpipi|i'
     w2m = API.to_api 'kernel32|WideCharToMultiByte|ilpipipp|i'
 
     len = m2w.call(CP_ACP, 0, self, -1, nil, 0)
     buf = "\0" * (len*2)
-    m2w.call(CP_ACP, 0, self, -1, buf, buf.size/2)
+    m2w.call(CP_ACP, 0, self, -1, buf, buf.size / 2)
 
     len = w2m.call(CP_UTF8, 0, buf, -1, nil, 0, nil, nil)
     ret = "\0" * len
@@ -93,31 +82,24 @@ class String
 
     ret
   end
-  #--------------------------------------------------------------------------
-  # ●
-  #--------------------------------------------------------------------------
+
   def s2u!
-    self[0,length] = s2u
+    self[0, length] = s2u
   end
-  #--------------------------------------------------------------------------
-  # ●
-  #--------------------------------------------------------------------------
+
   def u2s!
     self[0, length] = u2s
   end
+
+  def to_api
+    API.to_api(self)
+  end
+
 end
 
 ##==============================================================================
 # Class Numeric
 #===============================================================================
-# Methods:
-#-------------------------------------------------------------------------------
-#   fpart
-#     获取小数部分
-#-------------------------------------------------------------------------------
-#   rfpart
-#     1 - 小数部分
-##==============================================================================
 
 class Numeric
 
@@ -136,20 +118,6 @@ end
 ##==============================================================================
 # Class Bitmap
 #===============================================================================
-# Methods:
-#-------------------------------------------------------------------------------
-#   cut_bitmap(width, height, type)
-#     图片分割，将图片切割成指定大小并返回一个Bitmap数组。切割方式取决于type参数。
-#     width:每个小图的宽度。
-#     height:每个小图的高度。
-#     type:分割方式。0按行分割；1按列分割；2先按行分割，再按列分割；3先按列分割，再
-#     按行分割
-#-------------------------------------------------------------------------------
-#   cut_bitmap_conf(config)
-#     图片分割，将图片按参数数组所指定的大小进行分割。不同于cut_bitmap的是，每个分割
-#     后的图片大小并不一定相等。
-#     config:一个记录每个分割后图片位置的双重数组（[[x, y, width, height], ...])。
-##==============================================================================
 
 class Bitmap
 
@@ -165,7 +133,7 @@ class Bitmap
       when 3
         bitmaps = cut_rank_row(width, height)
       else
-        raise "Error: Bitmap cut type error(#{type})."
+        raise "Error:Bitmap cut type error(#{type})."
     end
     bitmaps
   end
@@ -221,8 +189,8 @@ class Bitmap
 
   # 平铺
   def scale9bitmap(a, b, c, d, width, height)
-    raise "width值太小!(#{width} < #{self.width})" if width < self.width
-    raise "height值太小!(#{height} < #{self.height})" if height < self.height
+    raise "Error:width值太小!(#{width} < #{self.width})" if width < self.width
+    raise "Error:height值太小!(#{height} < #{self.height})" if height < self.height
     w = self.width - a - b
     h = self.height - c - d
     config = [
@@ -308,36 +276,6 @@ end
 ##==============================================================================
 # Class: Color
 #===============================================================================
-# Constants:
-#-------------------------------------------------------------------------------
-# 十基本色：
-#   RED  红  ORANGE　橙　  YELLOW　黄　 GREEN　绿　 CHING　青　
-#   BLUE 蓝   PURPLE  紫　  BLACK　黑　 WHITE　白　 GREY　 灰
-# 十二色环:
-#   CR1~CR12
-# 三十二灰阶：
-#   GL1~GL32
-#-------------------------------------------------------------------------------
-# Class Methods:
-#-------------------------------------------------------------------------------
-#   str2color(str)
-#     将一个形如'rgba(xx, xx, xx, xx)'的字符串转换为一个Color对象。
-#     str:欲转换的字符串。
-#-------------------------------------------------------------------------------
-#   hex2color(hex)
-#     从十六进制颜色码创建Color对象。
-#-------------------------------------------------------------------------------
-# Methods:
-#-------------------------------------------------------------------------------
-#   inverse
-#     取该颜色的反色。
-#-------------------------------------------------------------------------------
-#   to_rgba
-#     以'rgba(xx, xx, xx, xx, xx)'的形式输出该颜色值。
-#-------------------------------------------------------------------------------
-#   to_hex
-#     输出该对象所对应的十六进制颜色码，忽略alpha值。
-##==============================================================================
 
 class Color
 
@@ -442,26 +380,6 @@ end
 ##==============================================================================
 # Rect
 #===============================================================================
-# Class Methods:
-#-------------------------------------------------------------------------------
-#   array2rect(array)
-#     将一个形如[x, y, width, height]的数组转换为一个Rect对象。
-#     array:欲转换的数组。
-#-------------------------------------------------------------------------------
-# Methods:
-#-------------------------------------------------------------------------------
-#   rect2array
-#     将一个rect对象转换为形如[x, y, width, height]形式的数组。
-#-------------------------------------------------------------------------------
-#   point_hit(x, y)
-#     判断点是否在rect内，若在则返回true，否则false。
-#     x:欲检测点的x坐标。
-#     y:欲检测点的y坐标。
-#-------------------------------------------------------------------------------
-#   rect_hit(rect)
-#     判断两个rect是否相交，若相交则返回true，否则false。
-#     rect:欲判断的另一个rect对象。
-##==============================================================================
 
 class Rect
 
@@ -487,24 +405,6 @@ end
 ##==============================================================================
 # Viewport
 #===============================================================================
-# Attributes:
-#-------------------------------------------------------------------------------
-#   list [R]
-#     该viewport对象内的所有sprite对象索引数组。
-#-------------------------------------------------------------------------------
-# Methods:
-#-------------------------------------------------------------------------------
-#   rect2array
-#     将一个rect对象转换为形如[x, y, width, height]形式的数组。
-#-------------------------------------------------------------------------------
-#   add_child(obj)
-#     将指定对象加添加到list中。
-#     obj:欲添加的对象。
-#-------------------------------------------------------------------------------
-#   remove_child(obj)
-#     将指定对象从list中移除。
-#     obj:欲移除的对象。
-##==============================================================================
 
 class Viewport
 
@@ -554,28 +454,6 @@ end
 ##==============================================================================
 # Animation
 #===============================================================================
-# Attributes:
-#-------------------------------------------------------------------------------
-#   list [R]
-#     该viewport对象内的所有sprite对象索引数组。
-#-------------------------------------------------------------------------------
-# Class Methods:
-#-------------------------------------------------------------------------------
-#   new(bitmaps, [viewport])
-#     创建一个序列图动画对象。
-#     bitmaps:序列图bitmap对象数组。
-#     viewport:指定的viewport对象。
-#-------------------------------------------------------------------------------
-# Methods:
-#-------------------------------------------------------------------------------
-#   play(x, y, frame_speed, start_frame, end_frame, reverse = false, loop = false)
-#     以指定帧速播放帧动画，播放区间由起始帧和结束帧指定，可循环和反向播放。
-#     obj:欲添加的对象。
-#-------------------------------------------------------------------------------
-#   remove_child(obj)
-#     将指定对象从list中移除。
-#     obj:欲移除的对象。
-##==============================================================================
 
 class Animation < Sprite
 
@@ -598,7 +476,6 @@ class Animation < Sprite
     @fist_frame = (!@reverse ? start_frame : end_frame)
     @end_frame = (@reverse ? start_frame : end_frame)
     @index = @fist_frame
-    @num = end_frame - start_frame
     @frame_speed = frame_speed
     self.bitmap = @bitmaps[@index]
     self.x = x
@@ -618,7 +495,7 @@ class Animation < Sprite
   def update
     super
     return if @status == 0
-    return @status = 0 unless @num
+    # print @index
     @duration -= 1
     return if @duration != 0
     next_frame
@@ -626,16 +503,105 @@ class Animation < Sprite
   end
 
   def next_frame
-    @index += (@reverse ? -1 : 1)
-    self.bitmap = @bitmaps[@index]
-    if @index == (@reverse ? 0 : @num)
+    if @index == @end_frame
       if @loop
         @index = @fist_frame
       else
-        @num = nil
         @index = nil
+        @status == 0
+      end
+    else
+      @index += (@reverse ? -1 : 1)
+    end
+    self.bitmap = @bitmaps[@index]
+  end
+
+end
+
+class Timer
+
+  @@list = []
+
+  def self.update
+    @@list.each{|o| o.update if o != nil } if @@list != []
+  end
+
+  attr_reader :status
+
+  TimerEvent = Struct.new(:start_time, :time, :block)
+
+  def initialize
+    @@list.push(self)
+    @afters = []
+    @everys = []
+    @status = :run
+    @stops_time = 0
+  end
+
+  def start
+    return if @status == :run
+    @stops_time += Time.now - @stop_time
+    @status = :run
+  end
+
+  def stop
+    return if @status == :stop
+    @stop_time = Time.now
+    @status = :stop
+  end
+
+  def after(time, &block)
+    @afters.push object = TimerEvent.new(Time.now, time, block)
+    object
+  end
+
+  def every(time, &block)
+    @everys.push object = TimerEvent.new(Time.now, time, block)
+    object
+  end
+
+  def delete_every(object)
+    @everys.each do |o|
+      @everys.delete(o) if o == object
+    end
+  end
+
+  def delete_after(object)
+    @afters.each do |o|
+      @afters.delete(o) if o == object
+    end
+  end
+
+  def dispose
+    @@list.delete(self)
+    @afters.clear
+    @everys.clear
+  end
+
+  def update_afters
+    return if @afters == []
+    @afters.each do |o|
+      if Time.now - o.start_time - @stops_time >= o.time
+        o.block.call
+        @afters.delete(o)
       end
     end
+  end
+
+  def update_everys
+    return if @everys == []
+    @everys.each do |o|
+      if Time.now - o.start_time - @stops_time >= o.time
+        o.block.call
+        o.start_time = Time.now
+        @stops_time = 0
+      end
+    end
+  end
+
+  def update
+    update_afters
+    update_everys
   end
 
 end

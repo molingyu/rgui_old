@@ -20,7 +20,7 @@ module Mouse
     def get_pos
       pos = [0, 0].pack('ll')
       return nil if GetMousePos.call(pos) == 0
-      return nil if Scr2Cli.call(API.get_hWnd, pos) == 0
+      return nil if Scr2Cli.call(API.get_hwnd, pos) == 0
       return [-1, -1] unless API.get_rect.point_hit(*pos.unpack('ll'))
       pos.unpack('ll')
     end

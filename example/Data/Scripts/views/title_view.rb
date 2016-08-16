@@ -10,15 +10,13 @@ class TitleView < View
     @sprite = Sprite.new
     @sprite.bitmap = bitmap.scale9bitmap(20, 20, 20, 20, 256, 300)
     actors = $g.load_image('Characters/actor.png').cut_row_rank(96, 128)
-    @actor = Animation.new(actors[0].cut_rank_row(32,32))
-    @actor.play(32, 32, 60, 0, 2, false, true)
+    list = actors[0].cut_rank_row(32,32)
+    @actor = Animation.new([list[3], list[4], list[5], list[4]])
+    @actor.play(32, 32, 6, 0, 3, false, true)
     @pos = [0, 0]
     @mouse_pos = Sprite.new
     @mouse_pos.bitmap = Bitmap.new(544, 416)
     @mouse_pos.x, @mouse_pos.y = 1, 1
-    @button = RGUI::Button.new\
-    x: 123,
-    y:124
 
   end
   
@@ -36,6 +34,7 @@ class TitleView < View
       @mouse_pos.bitmap.draw_text(10, 0, 100, 24, "x:#{pos[0]}y:#{pos[1]}")
       @pos = pos
     end
+    p 233 if Keyboard.down?(:KEY_HOME)
   end
 
 end

@@ -12,7 +12,7 @@ module RGUI
     attr_accessor :MOUSE, :KEYBOARD, :PATH, :CONTROLS, :SKIN_PATH
 
     def get_id
-      RGUI.NEXT_ID += 1
+      @NEXT_ID += 1
     end
 
     def hit(x, y, rect)
