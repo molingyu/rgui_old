@@ -16,6 +16,10 @@ class TitleView < View
     @mouse_pos = Sprite.new
     @mouse_pos.bitmap = Bitmap.new(544, 416)
     @mouse_pos.x, @mouse_pos.y = 1, 1
+    @button = RGUI::Button.new\
+    x: 123,
+    y:124
+
   end
   
   def update

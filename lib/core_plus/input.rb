@@ -25,16 +25,12 @@ module Mouse
       pos.unpack('ll')
     end
 
-    def mouse_scroll?
-
+    def scroll?
+      false
     end
 
-    def mouse_scroll_value
-
-    end
-
-    def update
-
+    def scroll_value
+      0
     end
 
   end
@@ -172,7 +168,7 @@ module Keyboard
       end
     end
 
-    def hold?(key)
+    def press?(key)
       key = key.to_sym if key.class == String
       value = KEY_VALUE[key]
       (@keyboard[value] == 1 || @keyboard[value] == 2) ? true : false
@@ -203,7 +199,6 @@ module Input
 
     def update
       shitake_core_plus_update
-      Mouse.update
       Keyboard.update
     end
 
