@@ -8,6 +8,7 @@ module RGUI
 
     def initialize(name)
       @path = RGUI.SKIN_PATH + name
+      read_controls
     end
 
     def read_controls

@@ -114,7 +114,7 @@ module RGUI
 
     def initialize(object = {})
       @UID = RGUI.get_id
-      # @theme = object[:theme] || RGUI::Theme.new(GUI.defaultTheme)
+      # @skin = object[:skin] || RGUI::skin.new(GUI.default_skin)
       @x = object[:x] || 0
       @y = object[:y] || 0
       @z = object[:z]

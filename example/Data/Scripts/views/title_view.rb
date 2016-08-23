@@ -17,7 +17,7 @@ class TitleView < View
     @mouse_pos = Sprite.new
     @mouse_pos.bitmap = Bitmap.new(544, 416)
     @mouse_pos.x, @mouse_pos.y = 1, 1
-
+    
   end
   
   def update
