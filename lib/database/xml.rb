@@ -3,8 +3,8 @@
 #data: 16-8-24
 
 class XMLLikeParser
-
   class Node
+
     attr_accessor :name
     attr_accessor :attr
     attr_accessor :child
@@ -80,17 +80,14 @@ class XMLLikeParser
     attr[$1.to_sym] = $2
     parse_attr(code, attr)
   end
-
 end
 
 module XML
   class <<self
     def xml2node(code)
-      xml = [
-          [/^<([a-zA-Z]+[^<^ ]*)([^<]*)\/>/, /^<([a-zA-Z]+[^<^ ]*)([^<]*)>(.*)<\/\1>/m],
-          /([a-zA-Z]+[^=]*)="([^"]*)"/,
-          ['text']
-      ]
+      xml = [[/^<([a-zA-Z]+[^<^ ]*)([^<]*)\/>/, /^<([a-zA-Z]+[^<^ ]*)([^<]*)>([^<]*)<\/\1>/m], # node style
+          /([a-zA-Z]+[^=]*)="([^"]*)"/, # attr style
+          ['text']] # end node
       XMLLikeParser.new(code, xml).root
     end
   end
@@ -101,3 +98,5 @@ module Kernel
     XML.xml2node(value)
   end
 end
+require 'pp'
+pp xml('233').child
