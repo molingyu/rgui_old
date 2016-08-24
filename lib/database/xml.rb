@@ -98,5 +98,3 @@ module Kernel
     XML.xml2node(value)
   end
 end
-require 'pp'
-pp xml('233').child
