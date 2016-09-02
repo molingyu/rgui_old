@@ -6,7 +6,7 @@ module Event
 
   class EventManger
 
-    attr_accessor :info
+    attr_accessor :this
     attr_accessor :event_fibers
     attr_accessor :timer
     attr_accessor :counter
@@ -27,7 +27,7 @@ module Event
         @event_fibers.each do |o|
           next @event_fibers.delete(o) unless o.alive?
           $event = self
-          $event.info = o.info
+          $event.this = o
           o.resume
         end
       end
@@ -61,6 +61,17 @@ module Event
 
     def index_filter
       $event.counter_filter[self.object_id]
+    end
+
+    def ok?(&block)
+      loop do
+        break if block.call
+        Fiber.yield
+      end
+    end
+
+    def delete
+      @events[$event.this.name].delete($event.this.block)
     end
 
     def wait(value)
@@ -98,7 +109,7 @@ module Event
     end
 
     def filter(&block)
-      Fiber.yield true unless block.call($event.info)
+      Fiber.yield true unless block.call($event.this.info)
     end
 
   end

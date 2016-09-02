@@ -8,12 +8,14 @@ module Event
 
     attr_reader :name
     attr_reader :info
+    attr_reader :block
 
     def initialize(name, callback, info)
       @name = name
       @info = info
+      @block = callback
       @fiber = Fiber.new do
-        callback.call(info)
+        @block.call(info)
         @fiber = nil
       end
       @return = nil
