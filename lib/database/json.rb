@@ -208,3 +208,17 @@ class JSONParser
     end
   end
 end
+
+module JSON
+
+  def self.json2hash(str)
+    JSONParser.new(str).parse
+  end
+
+end
+
+module Kernel
+  def json(value)
+    JSON.json2hash(value)
+  end
+end
