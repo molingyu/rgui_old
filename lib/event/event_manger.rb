@@ -36,7 +36,7 @@ module Event
     def trigger(name, info = nil)
       if @events[name]
         @events[name].each do |callback|
-          @event_fibers.push(EventFiber.new(name, callback, info))
+          @event_fibers.push(EventCallbackFiber.new(name, callback, info))
         end
       end
     end

@@ -4,11 +4,11 @@
 
 module Event
 
-  class EventFiber
+  class EventCallbackFiber
 
     attr_reader :name
     attr_reader :info
-    attr_reader :block
+    attr_reader :callback
 
     def initialize(name, callback, info)
       @name = name
