@@ -9,40 +9,17 @@ module Event
 
   VERSION = '1.0.0'
 
-  class Event
+  class Event < Array
 
     attr_reader :name
     attr_reader :type
 
     def initialize(name, type)
+      super()
       @name = name
       @type = type
-      @callback = []
     end
 
-    def length
-      @callback.length
-    end
-
-    def push(value)
-      @callback.push(value)
-    end
-
-    def each(&block)
-      @callback.each{ |callback| yield callback }
-    end
-
-    def []=(index, value)
-      @callback[index] = value
-    end
-
-    def delete(value)
-      @callback.delete(value)
-    end
-
-    def clear
-      @callback.clear
-    end
   end
 
 end
