@@ -30,10 +30,12 @@ module Event
           $event.this = o
           o.resume
         end
+        $event = nil
       end
     end
 
     def trigger(name, info = nil)
+      name = name.to_sym if name.class == String
       if @events[name]
         @events[name].each do |callback|
           @event_fibers.push(EventCallbackFiber.new(name, callback, info))
@@ -42,6 +44,7 @@ module Event
     end
 
     def on(name, index = nil, type = nil, &callback)
+      name = name.to_sym if name.class == String
       @events[name] = @events[name] || Event.new(name, type)
       index = @events[name].length unless index
       @events[name][index] = callback
@@ -71,7 +74,7 @@ module Event
     end
 
     def delete
-      @events[$event.this.name].delete($event.this.block)
+      @events[$event.this.name].delete($event.this.callback)
     end
 
     def wait(value)
@@ -115,4 +118,3 @@ module Event
   end
 
 end
-

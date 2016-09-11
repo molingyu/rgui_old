@@ -13,9 +13,9 @@ module Event
     def initialize(name, callback, info)
       @name = name
       @info = info
-      @block = callback
+      @callback = callback
       @fiber = Fiber.new do
-        @block.call(info)
+        @callback.call(info)
         @fiber = nil
       end
       @return = nil
@@ -27,6 +27,7 @@ module Event
       else
         @return = @fiber.resume
       end
+      $event.this = nil
     end
 
     def alive?
