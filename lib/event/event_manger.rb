@@ -43,7 +43,7 @@ module Event
       end
     end
 
-    def on(name, index = nil, type = nil, &callback)
+    def on(name, type = nil, index = nil, &callback)
       name = name.to_sym if name.class == String
       @events[name] = @events[name] || Event.new(name, type)
       index = @events[name].length unless index

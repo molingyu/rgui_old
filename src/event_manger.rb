@@ -64,7 +64,7 @@ module RGUI
       type = 0
       type = 1 if mouse_event?(name)
       type = 2 if keyboard_events?(name)
-      super(name, index, type, &callback)
+      super(name, type, index, &callback)
       @keyboard_events.push(@events[name]) if type == 2
     end
 
