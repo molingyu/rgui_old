@@ -84,11 +84,11 @@ end
 
 module XML
   class <<self
-    def xml2node(code)
+    def xml2node(str)
       xml = [[/^<([a-zA-Z]+[^<^ ]*)([^<]*)\/>/, /^<([a-zA-Z]+[^<^ ]*)([^<]*)>([^<]*)<\/\1>/m], # node style
           /([a-zA-Z]+[^=]*)="([^"]*)"/, # attr style
           ['text']] # end node
-      XMLLikeParser.new(code, xml).root
+      XMLLikeParser.new(str, xml).root
     end
   end
 end
