@@ -10,12 +10,13 @@ module Event
     attr_reader :info
     attr_reader :callback
 
-    def initialize(name, callback, info)
+    def initialize(event_manger, name, callback, info)
+      @event_manger = event_manger
       @name = name
       @info = info
       @callback = callback
       @fiber = Fiber.new do
-        @callback.call(info)
+        @callback.call(event_manger, info)
         @fiber = nil
       end
       @return = nil

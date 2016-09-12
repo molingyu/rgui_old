@@ -6,7 +6,6 @@ module Event
 
   class EventManger
 
-    ##attr_accessor :event_fibers
     attr_accessor :events
     attr_accessor :this
     attr_accessor :timer
@@ -16,7 +15,7 @@ module Event
 
     def initialize
       @events = {}
-      @event_fibers = []
+      @event_callback_fibers = []
       @timer = {}
       @counter = {}
       @timer_filter = {}
@@ -24,14 +23,13 @@ module Event
     end
 
     def update
-      if @event_fibers != []
-        @event_fibers.each do |o|
-          next @event_fibers.delete(o) unless o.alive?
-          $event = self
-          $event.this = o
+      if @event_callback_fibers != []
+        @event_callback_fibers.each do |o|
+          next @event_callback_fibers.delete(o) unless o.alive?
+          @this = o
           o.resume
+          @this = nil
         end
-        $event = nil
       end
     end
 
@@ -39,7 +37,7 @@ module Event
       name = name.to_sym if name.class == String
       if @events[name]
         @events[name].each do |callback|
-          @event_fibers.push(EventCallbackFiber.new(name, callback, info))
+          @event_callback_fibers.push(EventCallbackFiber.new(self, name, callback, info))
         end
       end
     end
@@ -51,24 +49,8 @@ module Event
       @events[name][index] = callback
     end
 
-    def time
-      Time.now - $event.timer[self.object_id]
-    end
-
-    def time_filter
-      Time.now - $event.timer_filter[self.object_id]
-    end
-
-    def index
-      $event.counter[self.object_id]
-    end
-
-    def index_filter
-      $event.counter_filter[self.object_id]
-    end
-
     def delete
-      @events[$event.this.name].delete($event.this.callback)
+      @events[@this.name].delete(@this.callback)
     end
 
 
@@ -80,39 +62,39 @@ module Event
     end
 
     def filter(&block)
-      Fiber.yield true unless block.call($event.this.info)
+      Fiber.yield true unless block.call
     end
 
     def wait(value)
-      $event.timer[self.object_id] = Time.now unless $event.timer[self.object_id]
+      @timer[@this.object_id] = Time.now unless @timer[@this.object_id]
       loop do
-        break $event.timer[self.object_id] = Time.now unless Time.now - $event.timer[self.object_id] < value
+        break @timer.delete(@this.object_id) unless Time.now - @timer[@this.object_id] < value
+        Fiber.yield
+      end
+    end
+
+    def times(value)
+      @counter[@this.object_id] = 1 unless @counter[@this.object_id]
+      @counter[@this.object_id] += 1
+      loop do
+        break @counter.delete(@this.object_id) if @counter[@this.object_id] > value
         Fiber.yield
       end
     end
 
     def wait_filter(value)
-      return $event.timer_filter[self.object_id] = Time.now unless $event.timer_filter[self.object_id]
+      return @timer_filter[@this.object_id] = Time.now unless @timer_filter[@this.object_id]
       loop do
-        break $event.timer_filter[self.object_id] = Time.now unless Time.now - $event.timer_filter[self.object_id] < value
+        break @timer_filter.delete(@this.object_id) unless Time.now - @timer_filter[@this.object_id] < value
         Fiber.yield true
       end
     end
 
-    def times(value)
-      $event.counter[self.object_id] = 1 unless $event.counter[self.object_id]
-      $event.counter[self.object_id] += 1
-      loop do
-        break $event.counter[self.object_id] = 1 if $event.counter[self.object_id] > value
-        Fiber.yield
-      end
-    end
-
     def times_filter(value)
-      return $event.counter_filter[self.object_id] = 1 unless $event.counter_filter[self.object_id]
-      $event.counter_filter[self.object_id] += 1
+      return @counter_filter[@this.object_id] = 1 unless @counter_filter[@this.object_id]
+      @counter_filter[@this.object_id] += 1
       loop do
-        break $event.counter_filter[self.object_id] = 1 if $event.counter_filter[self.object_id] > value
+        break @counter_filter.delete(@this.object_id) if @counter_filter[@this.object_id] > value
         Fiber.yield true
       end
     end
