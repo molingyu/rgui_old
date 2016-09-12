@@ -27,7 +27,6 @@ module Event
       else
         @return = @fiber.resume
       end
-      $event.this = nil
     end
 
     def alive?
