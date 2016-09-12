@@ -366,17 +366,22 @@
 暂停计时器对象。
 ### after(time){ ... }
 等待指定秒数后执行。此方法会生成并返回一个TimerEvent对象。
+
 ``time``:等待的秒数。
+
 ``block``:执行的动作。
 ### every(time){ ... }
 每隔指定秒数后执行。此方法会生成并返回一个TimerEvent对象。
+
 ``time``:等待的秒数。
+
 ``block``:执行的动作。
 ### delete_after(object)
 从计时器after_event列表里删除指定的TimerEvent对象。
 ``object``:欲删除的对象。
 ### delete_every(object)
 从计时器every_event列表里删除指定的TimerEvent对象。
+
 ``object``:欲删除的对象。
 ### dispose
 释放计时器对象。
