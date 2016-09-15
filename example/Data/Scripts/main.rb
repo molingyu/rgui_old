@@ -4,6 +4,7 @@
 
 require  'Data/Scripts/game.rb'
 
+Font.default_name = 'UbuntuMono'
 $g = Game.new
 
 $g.load_libs

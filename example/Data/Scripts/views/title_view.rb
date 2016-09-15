@@ -31,7 +31,7 @@ class TitleView < View
     pos = Mouse.get_pos
     if pos != @pos
       @mouse_pos.bitmap.clear
-      @mouse_pos.bitmap.draw_text(10, 0, 100, 24, "x:#{pos[0]}y:#{pos[1]}")
+      @mouse_pos.bitmap.draw_text(10, 0, 400, 24, sprintf("x\u263a%03d y\u27b5%03d", pos[0], pos[1]))
       @pos = pos
     end
   end
