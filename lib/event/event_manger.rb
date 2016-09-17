@@ -53,7 +53,6 @@ module Event
       @events[@this.name].delete(@this.callback)
     end
 
-
     def ok?(&block)
       loop do
         break if block.call
