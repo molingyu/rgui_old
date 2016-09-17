@@ -16,9 +16,15 @@
       <w>numlock</w>
       <w>peekany</w>
       <w>rfpart</w>
+      <w>rgss</w>
+      <w>rgui</w>
       <w>shitake</w>
       <w>sion</w>
       <w>skipany</w>
+      <w>tilemap</w>
+      <w>xsize</w>
+      <w>ysize</w>
+      <w>zsize</w>
     </words>
   </dictionary>
 </component>
