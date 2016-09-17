@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RGSS3::Font - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-exist-3F">::exist?</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RGSS3::Font">
+  <h1 id="class-RGSS3::Font" class="class">
+    class RGSS3::Font
+  </h1>
+
+  <section class="description">
+    
+<p>字体的类。字体是 <a href="Bitmap.html">Bitmap</a> 类的属性。
+如果游戏根目录下存在“Fonts”文件夹，那么就算系统中没有安装相应字体，游戏中依然可以使用该文件夹中存在的字体。 超类：Object。</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-default_bold" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_bold</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>默认粗体标记。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-default_color" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_color</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>默认文字颜色（Color）。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-default_italic" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_italic</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>默认斜体标记。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-default_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>默认字体名。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-default_out_color" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_out_color</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>默认文字轮廓颜色（Color）。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-default_outline" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_outline</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>默认文字阴影标记。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-default_shadow" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_shadow</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>默认文字轮廓标记。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-default_size" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_size</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>默认字体大小。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-bold" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">bold</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>粗体标记。默认为 false。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-color" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">color</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>文字颜色（Color）。也可以调整 alpha 值。默认为 (255,255,255,255)。 alpha 值也同时用来描绘文字轮廓 (RGSS3)
+和文字阴影。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-italic" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">italic</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>斜体标记。默认为 false。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>字体的名称。默认值是 “nsimsun” (RGSS3)。如果设置为字符串数组，可以依照喜欢的顺序指定多个字体。 example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">font</span>.<span class="ruby-identifier">name</span> = [<span class="ruby-string">&quot;微软雅黑&quot;</span>, <span class="ruby-string">&quot;黑体&quot;</span>]
+</pre>
+
+<p>在这个例子中，若系统中不存在优先度高的 “微软雅黑”，则会使用第二选择 “黑体”。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-out_color" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">out_color</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>文字轮廓颜色（Color），默认值为 (0,0,0,128)。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-outline" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">outline</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>文字阴影标记。默认为 false (RGSS3)。启用时会在文字的右下方描绘黑色阴影。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-shadow" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">shadow</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>文字轮廓标记，默认为 true。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-size" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">size</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>字体大小，默认为 24 (RGSS3)。</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-exist-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exist?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Font.html#method-c-exist-3F">::exist?</a></p>
+
+<pre class="ruby"><span class="ruby-identifier">若系统中存在指定的字体则返回</span> <span class="ruby-identifier">true。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="exist-3F-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Font</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">name</span>)
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(name = 'nsimsun', size = 24)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Font.html#method-c-new">::new</a>([name[, size]])</p>
+
+<pre class="ruby"><span class="ruby-identifier">生成字体对象。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 265</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Font</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span> = <span class="ruby-string">&#39;nsimsun&#39;</span>, <span class="ruby-identifier">size</span> = <span class="ruby-value">24</span>)
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
