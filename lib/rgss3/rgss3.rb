@@ -199,6 +199,82 @@ module RGSS3
 
   end
 
+  # 字体的类。字体是 Bitmap 类的属性。
+  # 如果游戏根目录下存在“Fonts”文件夹，那么就算系统中没有安装相应字体，游戏中依然可以使用该文件夹中存在的字体。
+  # 超类：Object。
+  #
+  class Font
+
+    class << self
+
+      # 默认字体名。
+      attr_accessor :default_name
+
+      # 默认字体大小。
+      attr_accessor :default_size
+
+      # 默认粗体标记。
+      attr_accessor :default_bold
+
+      # 默认斜体标记。
+      attr_accessor :default_italic
+
+      # 默认文字轮廓标记。
+      attr_accessor :default_shadow
+
+      # 默认文字阴影标记。
+      attr_accessor :default_outline
+
+      # 默认文字颜色（Color）。
+      attr_accessor :default_color
+
+      # 默认文字轮廓颜色（Color）。
+      attr_accessor :default_out_color
+
+    end
+
+    # 字体的名称。默认值是 "nsimsun" (RGSS3)。如果设置为字符串数组，可以依照喜欢的顺序指定多个字体。
+    # example:
+    #   font.name = ["微软雅黑", "黑体"]
+    # 在这个例子中，若系统中不存在优先度高的 "微软雅黑"，则会使用第二选择 "黑体"。
+    attr_accessor :name
+
+    # 字体大小，默认为 24 (RGSS3)。
+    attr_accessor :size
+
+    # 粗体标记。默认为 false。
+    attr_accessor :bold
+
+    # 斜体标记。默认为 false。
+    attr_accessor :italic
+
+    # 文字轮廓标记，默认为 true。
+    attr_accessor :shadow
+
+    # 文字阴影标记。默认为 false (RGSS3)。启用时会在文字的右下方描绘黑色阴影。
+    attr_accessor :outline
+
+    # 文字颜色（Color）。也可以调整 alpha 值。默认为 (255,255,255,255)。
+    # alpha 值也同时用来描绘文字轮廓 (RGSS3) 和文字阴影。
+    attr_accessor :color
+
+    # 文字轮廓颜色（Color），默认值为 (0,0,0,128)。
+    attr_accessor :out_color
+
+    # Font.new([name[, size]])
+    #   生成字体对象。
+    def Font.new(name = 'nsimsun', size = 24)
+
+    end
+
+    # Font.exist?(name)
+    #   若系统中存在指定的字体则返回 true。
+    def Font.exist?(name)
+
+    end
+
+  end
+
   # 平面的类。平面是将位图的图案在整个画面上平铺显示的特殊精灵，用于显示远景图等。
   # 超类：Object。
   #
