@@ -4,8 +4,16 @@
 # RGSS3 即RGSS系列的第三代产品。（对应的 RPG Maker 作品为 RPG Maker VX Ace）
 # === Author
 # ©2011 ENTERBRAIN, INC./YOJI OJIMA <www.rpgmakerweb.com>
+# === Translate
+# taroxd <https://taroxd.github.io/>
+# 余烬之中 <https://github.com/ShadowMomo>
+# 喵呜喵5 <http://rm.66rpg.com/home.php?mod=space&uid=291206>
+# DivineCrow <http://rm.66rpg.com/home.php?mod=space&uid=2630062>
+# kuerlulu <http://hyrious.github.io/>
+# VIPArcher <http://rm.66rpg.com/home.php?mod=space&uid=336539>
 # === Doc Author
-# shitake <http://rm.66rpg.com>
+# shitake <http://rm.66rpg.com/home.php?mod=space&uid=2653399>
+#
 module RGSS3
 
   # 位图类。位图表示图像的数据。
