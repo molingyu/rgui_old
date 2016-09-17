@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RGSS3::Table - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-resize">#resize</a>
+    
+    <li ><a href="#method-i-xsize">#xsize</a>
+    
+    <li ><a href="#method-i-ysize">#ysize</a>
+    
+    <li ><a href="#method-i-zsize">#zsize</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RGSS3::Table">
+  <h1 id="class-RGSS3::Table" class="class">
+    class RGSS3::Table
+  </h1>
+
+  <section class="description">
+    
+<p>多维数组的类。每个元素都是带符号的两字节整数，也就是 -32,768~32,767 之间的整数。 Ruby Array
+类在处理大量信息时效率很差，因此使用了此类。 超类：Object。</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(xsize, ysize = nil, zsize = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Table.html#method-c-new">::new</a>(xsize[, ysize[, zsize]])</p>
+
+<pre>生成 Table 对象。指定多维数组各维的长度。生成的数组可以是 1~3 维。生成没有元素的数组也可以。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 437</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">xsize</span>, <span class="ruby-identifier">ysize</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">zsize</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(x, y = nil, z = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="x">self</a> self[x, y] self[x, y, z]</p>
+
+<pre class="ruby"><span class="ruby-identifier">读取数组的元素。生成的数组有几维，该方法就接受几个参数。若指定的元素不存在则返回</span> <span class="ruby-identifier">nil。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 445</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">z</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(x, y = nil, z = nil, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="x">self</a> = value self[x, y] = value self[x, y, z] = value
+存入数组的元素。生成的数组有几维，该方法就接受几个参数。若指定的元素不存在则返回 nil。</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 453</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">z</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resize</span><span
+            class="method-args">(xsize, ysize = nil, zsize = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>resize(xsize[, ysize[, zsize]])</p>
+
+<pre class="ruby"><span class="ruby-identifier">更改数组的长度。保留更改前的数据。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="resize-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 459</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resize</span>(<span class="ruby-identifier">xsize</span>, <span class="ruby-identifier">ysize</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">zsize</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xsize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xsize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>xsize</p>
+
+<pre class="ruby"><span class="ruby-identifier">获取数组</span> <span class="ruby-constant">X</span> <span class="ruby-identifier">维的长度。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="xsize-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 465</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">xsize</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ysize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ysize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>ysize</p>
+
+<pre class="ruby"><span class="ruby-identifier">获取数组</span> <span class="ruby-constant">Y</span> <span class="ruby-identifier">维的长度。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="ysize-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 470</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ysize</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-zsize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zsize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>zsize</p>
+
+<pre class="ruby"><span class="ruby-identifier">获取数组</span> <span class="ruby-constant">Z</span> <span class="ruby-identifier">维的长度。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="zsize-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 476</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zsize</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

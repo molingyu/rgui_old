@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RGSS3::Audio - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-bgm_fade">::bgm_fade</a>
+    
+    <li ><a href="#method-c-bgm_play">::bgm_play</a>
+    
+    <li ><a href="#method-c-bgm_pos">::bgm_pos</a>
+    
+    <li ><a href="#method-c-bgm_stop">::bgm_stop</a>
+    
+    <li ><a href="#method-c-bgs_fade">::bgs_fade</a>
+    
+    <li ><a href="#method-c-bgs_play">::bgs_play</a>
+    
+    <li ><a href="#method-c-bgs_pos">::bgs_pos</a>
+    
+    <li ><a href="#method-c-bgs_stop">::bgs_stop</a>
+    
+    <li ><a href="#method-c-me_fade">::me_fade</a>
+    
+    <li ><a href="#method-c-me_play">::me_play</a>
+    
+    <li ><a href="#method-c-me_stop">::me_stop</a>
+    
+    <li ><a href="#method-c-se_play">::se_play</a>
+    
+    <li ><a href="#method-c-se_stop">::se_stop</a>
+    
+    <li ><a href="#method-c-setup_midi">::setup_midi</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RGSS3::Audio">
+  <h1 id="module-RGSS3::Audio" class="module">
+    module RGSS3::Audio
+  </h1>
+
+  <section class="description">
+    
+<p>执行音乐和声音处理的模块。</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-bgm_fade" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bgm_fade</span><span
+            class="method-args">(time)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-bgm_fade">::bgm_fade</a>(time)</p>
+
+<pre class="ruby"><span class="ruby-identifier">开始淡出</span> <span class="ruby-constant">BGM。time</span> <span class="ruby-identifier">以毫秒为单位指定淡出需要的时间。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="bgm_fade-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 822</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bgm_fade</span>(<span class="ruby-identifier">time</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bgm_play" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bgm_play</span><span
+            class="method-args">(filename, volume = 100, pitch = 0, pos = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-bgm_play">::bgm_play</a>(filename[, volume[,
+pitch[, pos]]])</p>
+
+<pre>开始播放 BGM。依次指定文件名、音量、音调和起始位置。
+起始位置 (RGSS3) 只对 ogg 和 wav 有效。
+RGSS-RTP 内的文件也会自动搜索。扩展名可以省略。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="bgm_play-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 810</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bgm_play</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">volume</span> = <span class="ruby-value">100</span>, <span class="ruby-identifier">pitch</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">pos</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bgm_pos" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bgm_pos</span><span
+            class="method-args">(time)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-bgm_pos">::bgm_pos</a>(time)</p>
+
+<pre>获取 BGM 的播放位置。只对 ogg 和 wav 有效。无效时返回 0。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="bgm_pos-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 828</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bgm_pos</span>(<span class="ruby-identifier">time</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bgm_stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bgm_stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-bgm_stop">::bgm_stop</a></p>
+
+<pre class="ruby"><span class="ruby-identifier">停止播放</span> <span class="ruby-constant">BGM。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="bgm_stop-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 816</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bgm_stop</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bgs_fade" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bgs_fade</span><span
+            class="method-args">(time)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-bgs_fade">::bgs_fade</a>(time)</p>
+
+<pre class="ruby"><span class="ruby-identifier">开始淡出</span> <span class="ruby-constant">BGS。time</span> <span class="ruby-identifier">以毫秒为单位指定淡出需要的时间。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="bgs_fade-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 848</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bgs_fade</span>(<span class="ruby-identifier">time</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bgs_play" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bgs_play</span><span
+            class="method-args">(filename, volume = 100, pitch = 0, pos = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-bgs_play">::bgs_play</a>(filename[, volume[,
+pitch[, pos]]])</p>
+
+<pre>开始播放 BGS。依次指定文件名、音量、音调和起始位置。
+起始位置 (RGSS3) 只对 ogg 和 wav 有效。
+RGSS-RTP 内的文件也会自动搜索。扩展名可以省略。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="bgs_play-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 836</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bgs_play</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">volume</span> = <span class="ruby-value">100</span>, <span class="ruby-identifier">pitch</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">pos</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bgs_pos" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bgs_pos</span><span
+            class="method-args">(time)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-bgs_pos">::bgs_pos</a>(time)</p>
+
+<pre>获取 BGS 的播放位置。只对 ogg 和 wav 有效。无效时返回 0。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="bgs_pos-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 854</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bgs_pos</span>(<span class="ruby-identifier">time</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bgs_stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bgs_stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-bgs_stop">::bgs_stop</a></p>
+
+<pre class="ruby"><span class="ruby-identifier">停止播放</span> <span class="ruby-constant">BGS。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="bgs_stop-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 842</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bgs_stop</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-me_fade" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">me_fade</span><span
+            class="method-args">(time)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-me_fade">::me_fade</a>(time)</p>
+
+<pre class="ruby"><span class="ruby-identifier">开始淡出</span> <span class="ruby-constant">ME。time</span> <span class="ruby-identifier">以毫秒为单位指定淡出需要的时间。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="me_fade-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 874</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">me_fade</span>(<span class="ruby-identifier">time</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-me_play" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">me_play</span><span
+            class="method-args">(filename, volume = 100, pitch = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-me_play">::me_play</a>(filename[, volume[,
+pitch[, pos]]])</p>
+
+<pre>开始播放 ME。依次指定文件名、音量、音调和起始位置。
+RGSS-RTP 内的文件也会自动搜索。扩展名可以省略。
+播放 ME 时会暂停 BGM。BGM 重新开始的时机与 RGSS1 稍有不同。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="me_play-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 862</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">me_play</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">volume</span> = <span class="ruby-value">100</span>, <span class="ruby-identifier">pitch</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-me_stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">me_stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-me_stop">::me_stop</a></p>
+
+<pre class="ruby"><span class="ruby-identifier">停止播放</span> <span class="ruby-constant">ME。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="me_stop-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 868</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">me_stop</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-se_play" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">se_play</span><span
+            class="method-args">(filename, volume = 100, pitch = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-se_play">::se_play</a>(filename[, volume[,
+pitch[, pos]]])</p>
+
+<pre>开始播放 SE。依次指定文件名、音量、音调和起始位置。
+RGSS-RTP 内的文件也会自动搜索。扩展名可以省略。
+若是在极短时间内重复播放同一个 SE，会自动延长间隔以防出现爆音。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="se_play-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 882</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">se_play</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">volume</span> = <span class="ruby-value">100</span>, <span class="ruby-identifier">pitch</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-se_stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">se_stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-se_stop">::se_stop</a></p>
+
+<pre class="ruby"><span class="ruby-identifier">停止播放</span> <span class="ruby-constant">SE。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="se_stop-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 888</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">se_stop</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-setup_midi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_midi</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Audio.html#method-c-setup_midi">::setup_midi</a></p>
+
+<pre>执行 DirectMusic 播放 MIDI 的准备。
+方法化后，可以将 RGSS2 启动时执行的处理放在任意时机执行。
+不调用本方法也可以播放 MIDI，但是在 Windows Vista 之后的版本中，初次播放会有 1~2 秒的延迟。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="setup_midi-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 802</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_midi</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

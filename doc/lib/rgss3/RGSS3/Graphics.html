@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RGSS3::Graphics - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-fadein">::fadein</a>
+    
+    <li ><a href="#method-c-fadeout">::fadeout</a>
+    
+    <li ><a href="#method-c-frame_reset">::frame_reset</a>
+    
+    <li ><a href="#method-c-freeze">::freeze</a>
+    
+    <li ><a href="#method-c-height">::height</a>
+    
+    <li ><a href="#method-c-play_movie">::play_movie</a>
+    
+    <li ><a href="#method-c-resize_screen">::resize_screen</a>
+    
+    <li ><a href="#method-c-snap_to_bitmap">::snap_to_bitmap</a>
+    
+    <li ><a href="#method-c-transition">::transition</a>
+    
+    <li ><a href="#method-c-update">::update</a>
+    
+    <li ><a href="#method-c-wait">::wait</a>
+    
+    <li ><a href="#method-c-width">::width</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RGSS3::Graphics">
+  <h1 id="module-RGSS3::Graphics" class="module">
+    module RGSS3::Graphics
+  </h1>
+
+  <section class="description">
+    
+<p>该模块负责画面整体的处理。</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-brightness" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">brightness</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>画面的亮度。取范围 0~255 中的数值。fadeout、fadein、transition 方法内部会根据需要修改此数值。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-frame_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">frame_count</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>画面更新次数的计数。游戏开始时将该属性设为 0，游戏时间（秒）就可以通过该属性除以 <a
+href="Graphics.html#attribute-c-frame_rate">::frame_rate</a> 的值而算出。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-frame_rate" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">frame_rate</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>每秒更新画面的次数。数值越大就需要越多的 CPU 资源。一般设置为 60。 不建议更改此数值，更改时指定范围 10~120
+中的数值。超出范围的数值会自动修正。</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-fadein" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fadein</span><span
+            class="method-args">(duration)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>fadein(duration)</p>
+
+<pre class="ruby"><span class="ruby-identifier">执行画面的淡入。</span>
+<span class="ruby-identifier">duration</span> <span class="ruby-identifier">是淡入花费的帧数。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="fadein-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 942</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fadein</span>(<span class="ruby-identifier">duration</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fadeout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fadeout</span><span
+            class="method-args">(duration)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>fadeout(duration)</p>
+
+<pre class="ruby"><span class="ruby-identifier">执行画面的淡出。</span>
+<span class="ruby-identifier">duration</span> <span class="ruby-identifier">是淡出花费的帧数。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="fadeout-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 935</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fadeout</span>(<span class="ruby-identifier">duration</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-frame_reset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">frame_reset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Graphics.html#method-c-frame_reset">::frame_reset</a></p>
+
+<pre class="ruby"><span class="ruby-identifier">重置画面的更新时间。在执行耗时的处理之后，调用此方法可以避免严重的跳帧。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="frame_reset-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 972</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">frame_reset</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-freeze" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">freeze</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>freeze</p>
+
+<pre class="ruby"><span class="ruby-identifier">固定当前画面以准备渐变。</span>
+<span class="ruby-identifier">在调用</span> <span class="ruby-identifier">transition</span> <span class="ruby-identifier">方法之前，禁止一切画面的重绘。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="freeze-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 949</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">freeze</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-height" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">height</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>height</p>
+
+<pre>获取画面的高度。默认值为 416。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="height-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 984</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">height</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-play_movie" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">play_movie</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Graphics.html#method-c-play_movie">::play_movie</a>(filename)</p>
+
+<pre class="ruby"><span class="ruby-identifier">从文件名为</span> <span class="ruby-identifier">filename</span> <span class="ruby-identifier">的文件中播放视频。</span>
+<span class="ruby-identifier">在播放结束后，才会返回。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="play_movie-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 998</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">play_movie</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-resize_screen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resize_screen</span><span
+            class="method-args">(width, height)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Graphics.html#method-c-resize_screen">::resize_screen</a>(width,
+height)</p>
+
+<pre class="ruby"><span class="ruby-identifier">修改画面的尺寸。</span>
+</pre>
+
+<p>width、height 指定宽度和高度，范围为 640×480。</p>
+          
+          
+
+          
+          <div class="method-source-code" id="resize_screen-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 991</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resize_screen</span>(<span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-snap_to_bitmap" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">snap_to_bitmap</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Graphics.html#method-c-snap_to_bitmap">::snap_to_bitmap</a></p>
+
+<pre class="ruby"><span class="ruby-identifier">以位图对象的形式获取当前的游戏画面。</span>
+<span class="ruby-identifier">即使以</span> <span class="ruby-identifier">freeze</span> <span class="ruby-identifier">方法固定图像，该方法也会获取当前本来应该显示的图像。</span>
+<span class="ruby-identifier">生成的位图不再需要时，必须立刻释放位图。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="snap_to_bitmap-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 966</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">snap_to_bitmap</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-transition" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transition</span><span
+            class="method-args">(duration = 10, filename = nil, vague = 40)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>transition([duration[, filename[, vague]]])</p>
+
+<pre>执行由 Graphics.freeze 方法固定的画面到当前画面的渐变。
+duration 是渐变花费的帧数，默认值为 10 。
+filename 指定渐变图像的文件名（未指定时则执行普通的淡出）。RGSS-RTP、加密档案中的文件都会被查找。 扩展名可以省略。
+vague 是设置图像的起始点和终结点之间边界的模糊度，数值愈大则愈模糊。默认值为 40。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="transition-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 958</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transition</span>(<span class="ruby-identifier">duration</span> = <span class="ruby-value">10</span>, <span class="ruby-identifier">filename</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">vague</span> = <span class="ruby-value">40</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>update</p>
+
+<pre class="ruby"><span class="ruby-identifier">更新游戏画面，推进一帧。该方法需要定期调用。</span>
+</pre>
+
+<p>example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-constant">Graphics</span>.<span class="ruby-identifier">update</span>
+  <span class="ruby-constant">Input</span>.<span class="ruby-identifier">update</span>
+  <span class="ruby-identifier">do_something</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 919</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wait" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait</span><span
+            class="method-args">(duration)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>wait(duration)</p>
+
+<pre class="ruby"><span class="ruby-identifier">等待指定的帧数，与下面的代码等效：</span>
+<span class="ruby-identifier">duration</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-constant">Graphics</span>.<span class="ruby-identifier">update</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="wait-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 928</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wait</span>(<span class="ruby-identifier">duration</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-width" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">width</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>width</p>
+
+<pre>获取画面的宽度。默认值为 544。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="width-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 978</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">width</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

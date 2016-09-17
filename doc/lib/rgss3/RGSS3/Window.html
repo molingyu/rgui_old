@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RGSS3::Window - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-close-3F">#close?</a>
+    
+    <li ><a href="#method-i-dispose">#dispose</a>
+    
+    <li ><a href="#method-i-disposed-3F">#disposed?</a>
+    
+    <li ><a href="#method-i-move">#move</a>
+    
+    <li ><a href="#method-i-open-3F">#open?</a>
+    
+    <li ><a href="#method-i-update">#update</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RGSS3::Window">
+  <h1 id="class-RGSS3::Window" class="class">
+    class RGSS3::Window
+  </h1>
+
+  <section class="description">
+    
+<p>游戏内窗口的类，内部由多个精灵构成。 超类：Object。</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-active" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">active</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>光标闪烁的状态。true 表示闪烁。默认为 true。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-arrows_visible" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">arrows_visible</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>滚动箭头可见的状态，true 表示可见。默认为 true。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-back_opacity" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">back_opacity</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口背景的不透明度（0～255）。超出此范围的数值会自动修正。默认为 192。(RGSS3)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-contents" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">contents</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口内容位图（Bitmap）的引用。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-contents_opacity" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">contents_opacity</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口内容的不透明度（0～255）。超出此范围的数值会自动修正。默认为 255。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-cursor_rect" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">cursor_rect</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>光标矩形（Rect）。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-height" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">height</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口的高度。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-opacity" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">opacity</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口的不透明度（0～255）。超出此范围的数值会自动修正。默认为 255。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-openness" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">openness</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口的打开程度（0～255）。超出此范围的数值会自动修正。 将此数值从 0（完全关闭）至
+255（完全打开）之间变换，可以产生窗口打开和关闭的动画效果。 openness 不满 255 时，窗口的内容不会显示。默认为 255。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ox" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ox</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口内容原点的 X 坐标。修改此数值可以滚动窗口。 该属性同样影响光标。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-oy" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">oy</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口内容原点的 Y 坐标。修改此数值可以滚动窗口。 该属性同样影响光标。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-padding" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">padding</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口边框与内容之间的边距，默认为 12。(RGSS3)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-padding_bottom" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">padding_bottom</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>底端用的 padding。由于该属性会随着 padding 的改变而改变，因此必须在 padding 之后设置。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-pause" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pause</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>暂停标记可见的状态。暂停标记是表示消息窗口等待输入的记号。true 表示可见。默认为 false。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-tone" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">tone</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口背景的色调（Tone）。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-viewport" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">viewport</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口关联的显示端口（Viewport）的引用。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-visible" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">visible</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口可见的状态。true 表示可见。默认为 true。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-width" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">width</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口的宽度。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-windowskin" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">windowskin</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口皮肤位图（Bitmap）的引用。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-x" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">x</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口的 X 坐标。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-y" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">y</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口的 Y 坐标。</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-z" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">z</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>窗口的 Z 坐标。数值越大的窗口显示在越前方。 Z 坐标相同的，越晚生成的对象显示在越前方。 默认为 100。(RGSS3)</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(x = 0, y = 0, width = 0, height = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Window.html#method-c-new">::new</a>([x, y, width, height]) 生成一个 <a
+href="Window.html">Window</a> 对象，根据需要指定位置与大小。</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 735</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">x</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">y</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">width</span> = <span class="ruby-value">0</span>, <span class="ruby-identifier">height</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-close-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>close?</p>
+
+<pre>如果窗口完全关闭（openness == 0）则返回 true。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="close-3F-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 771</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close?</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dispose" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dispose</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>dispose</p>
+
+<pre class="ruby"><span class="ruby-identifier">释放窗口。若是已释放则什么都不做。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="dispose-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 741</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dispose</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-disposed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">disposed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>disposed?</p>
+
+<pre class="ruby"><span class="ruby-identifier">当窗口已释放则返回</span> <span class="ruby-identifier">true。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="disposed-3F-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 747</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">disposed?</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-move" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">move</span><span
+            class="method-args">(x, y, width, height)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>move(x, y, width, height)</p>
+
+<pre class="ruby"><span class="ruby-identifier">同时设置窗口的</span> <span class="ruby-constant">X</span> <span class="ruby-identifier">坐标、Y</span> <span class="ruby-identifier">坐标、宽度、高度。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="move-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 759</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">move</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>open?</p>
+
+<pre>如果窗口完全打开（openness == 255）则返回 true。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="open-3F-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 765</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open?</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>update</p>
+
+<pre class="ruby"><span class="ruby-identifier">刷新光标的闪烁和暂停标记的动画。该方法原则上每帧调用一次。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 753</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

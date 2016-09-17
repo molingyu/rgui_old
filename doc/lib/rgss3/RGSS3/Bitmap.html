@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RGSS3::Bitmap - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-blt">#blt</a>
+    
+    <li ><a href="#method-i-blur">#blur</a>
+    
+    <li ><a href="#method-i-clear">#clear</a>
+    
+    <li ><a href="#method-i-clear_rect">#clear_rect</a>
+    
+    <li ><a href="#method-i-dispose">#dispose</a>
+    
+    <li ><a href="#method-i-dispose-3F">#dispose?</a>
+    
+    <li ><a href="#method-i-draw_text">#draw_text</a>
+    
+    <li ><a href="#method-i-fill_rect">#fill_rect</a>
+    
+    <li ><a href="#method-i-get_pixel">#get_pixel</a>
+    
+    <li ><a href="#method-i-gradient_fill_rect">#gradient_fill_rect</a>
+    
+    <li ><a href="#method-i-height">#height</a>
+    
+    <li ><a href="#method-i-hue_change">#hue_change</a>
+    
+    <li ><a href="#method-i-radial_blur">#radial_blur</a>
+    
+    <li ><a href="#method-i-rect">#rect</a>
+    
+    <li ><a href="#method-i-set_pixel">#set_pixel</a>
+    
+    <li ><a href="#method-i-stretch_blt">#stretch_blt</a>
+    
+    <li ><a href="#method-i-text_size">#text_size</a>
+    
+    <li ><a href="#method-i-width">#width</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RGSS3::Bitmap">
+  <h1 id="class-RGSS3::Bitmap" class="class">
+    class RGSS3::Bitmap
+  </h1>
+
+  <section class="description">
+    
+<p>位图类。位图表示图像的数据。 在画面上显示位图，必须使用精灵（Sprite）之类的对象。 超类：Object。</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-font" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">font</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>使用 <a href="Bitmap.html#method-i-draw_text">#draw_text</a>
+方法描绘字符串时所使用的字体（Font）。</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Bitmap.html#method-c-new">::new</a>    -&gt; self</p>
+
+<pre>载入由 filename 参数所指定的图像，生成一个 Bitmap 对象。
+RGSS-RTP 和加密档案中的文件会自动搜索。扩展名可以省略。</pre>
+
+<p><a href="Bitmap.html#method-c-new">::new</a>(width, height)    -&gt; self</p>
+
+<pre class="ruby"><span class="ruby-identifier">生成指定大小的</span> <span class="ruby-constant">Bitmap</span> <span class="ruby-identifier">对象。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-blt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blt</span><span
+            class="method-args">(x, y, src_bitmap, src_rect, opacity = 255)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>blt(x, y, src_bitmap, src_rect[, opacity])   -&gt; nil</p>
+
+<pre>将位图 src_bitmap 的矩形 src_rect（Rect）中的数据整体传送到当前位图的坐标 (x, y) 处。
+opacity 是透明度，范围 0～255。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="blt-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blt</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>, <span class="ruby-identifier">src_bitmap</span>, <span class="ruby-identifier">src_rect</span>, <span class="ruby-identifier">opacity</span> = <span class="ruby-value">255</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blur" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blur</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>blur   -&gt; nil</p>
+
+<pre class="ruby"><span class="ruby-identifier">对位图执行模糊效果。此处理需要花费时间。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="blur-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blur</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>clear   -&gt; nil</p>
+
+<pre class="ruby"><span class="ruby-identifier">清除整个位图。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clear_rect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_rect</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Bitmap.html#method-i-clear_rect">#clear_rect</a>(x, y, width,
+height)   -&gt; nil</p>
+
+<pre>清除位图的矩形 (x, y, width, height)。</pre>
+
+<p><a href="Bitmap.html#method-i-clear_rect">#clear_rect</a>(rect)   -&gt; nil</p>
+
+<pre class="ruby"><span class="ruby-identifier">清除位图的矩形</span> <span class="ruby-identifier">rect（Rect）。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="clear_rect-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_rect</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dispose" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dispose</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>dispose    -&gt; nil</p>
+
+<pre class="ruby"><span class="ruby-identifier">释放位图，若位图已释放，则什么都不做。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="dispose-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dispose</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dispose-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dispose?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>dispose?    -&gt; nil</p>
+
+<pre class="ruby"><span class="ruby-identifier">释放位图，若位图已释放，则什么都不做。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="dispose-3F-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dispose?</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-draw_text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">draw_text</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Bitmap.html#method-i-draw_text">#draw_text</a>(x, y, width,
+height, str[, align])    -&gt; nil <a
+href="Bitmap.html#method-i-draw_text">#draw_text</a>(rect, str[, align])  
+-&gt; nil</p>
+
+<pre>在位图的矩形 (x, y, width, height) 或 rect（Rect）中描绘字符串 str 。
+若 str 不是字符串对象，则会在执行之前，先调用 to_s 方法转换成字符串。
+若文字长度超过区域的宽度，文字宽度会自动缩小到 60%。
+文字的横向对齐方式默认为居左，可以设置 align 为 1 居中，或设置为 2 居右。垂直方向总是居中对齐。
+此处理需要花费时间，因此不建议每帧重绘一次文字。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="draw_text-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_text</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fill_rect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fill_rect</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Bitmap.html#method-i-fill_rect">#fill_rect</a>(x, y, width,
+height, color)   -&gt; nil</p>
+
+<pre>将位图的矩形 (x, y, width, height)填充指定的颜色 color（Color）。</pre>
+
+<p><a href="Bitmap.html#method-i-fill_rect">#fill_rect</a>(rect, color)  
+-&gt; nil</p>
+
+<pre>将位图的矩形(rect)填充指定的颜色 color（Color）。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="fill_rect-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fill_rect</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_pixel" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_pixel</span><span
+            class="method-args">(x, y)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Bitmap.html#method-i-get_pixel">#get_pixel</a>(x, y)   -&gt; <a
+href="Color.html">Color</a></p>
+
+<pre>获取点 (x, y) 的颜色（Color）。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="get_pixel-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_pixel</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gradient_fill_rect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gradient_fill_rect</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a
+href="Bitmap.html#method-i-gradient_fill_rect">#gradient_fill_rect</a>(x,
+y, width, height, color1, color2[, vertical])   -&gt; nil</p>
+
+<pre>将位图的矩形 (x, y, width, height)渐变填充颜色 color1（Color）至 color2（Color）。
+将 vertical 设为 true 可以纵向渐变。默认为横向渐变。</pre>
+
+<p><a
+href="Bitmap.html#method-i-gradient_fill_rect">#gradient_fill_rect</a>(rect,
+color1, color2[, vertical])   -&gt; nil</p>
+
+<pre>将位图的矩形（Rect）渐变填充颜色 color1（Color）至 color2（Color）。
+将 vertical 设为 true 可以纵向渐变。默认为横向渐变。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="gradient_fill_rect-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gradient_fill_rect</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-height" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">height</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>height   -&gt; Integer</p>
+
+<pre class="ruby"><span class="ruby-identifier">获取位图的高度。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="height-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">height</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hue_change" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hue_change</span><span
+            class="method-args">(hue)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Bitmap.html#method-i-hue_change">#hue_change</a>(hue)   -&gt; nil</p>
+
+<pre>在 360 度内变换位图的色相。
+此处理需要花费时间。另外，由于转换误差，反复转换可能会导致色彩失真。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="hue_change-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hue_change</span>(<span class="ruby-identifier">hue</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-radial_blur" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">radial_blur</span><span
+            class="method-args">(angle, division)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Bitmap.html#method-i-radial_blur">#radial_blur</a>(angle,
+division)    -&gt; nil</p>
+
+<pre>对位图执行放射型模糊。angle 指定 0~360 的角度，角度越大，效果越圆润。
+division 指定 2～100 的分界数，分界数越大，效果越平滑。此处理需要花费大量时间。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="radial_blur-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">radial_blur</span>(<span class="ruby-identifier">angle</span>, <span class="ruby-identifier">division</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rect   -&gt; <a href="Rect.html">Rect</a></p>
+
+<pre class="ruby"><span class="ruby-identifier">获取位图的矩形（Rect）。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="rect-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rect</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_pixel" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_pixel</span><span
+            class="method-args">(x, y, color)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Bitmap.html#method-i-set_pixel">#set_pixel</a>(x, y, color)  
+-&gt; color</p>
+
+<pre>设置点 (x, y) 的颜色（Color）。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="set_pixel-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_pixel</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>, <span class="ruby-identifier">color</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stretch_blt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stretch_blt</span><span
+            class="method-args">(dest_rect, src_bitmap, src_rect, opacity = 255)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Bitmap.html#method-i-stretch_blt">#stretch_blt</a>(dest_rect,
+src_bitmap, src_rect[, opacity])   -&gt; nil</p>
+
+<pre>将位图 src_bitmap 的矩形 src_rect（Rect）中的数据整体传送到当前位图的矩形 dest_rect（Rect）处。
+opacity 是透明度，范围 0～255。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="stretch_blt-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stretch_blt</span>(<span class="ruby-identifier">dest_rect</span>, <span class="ruby-identifier">src_bitmap</span>, <span class="ruby-identifier">src_rect</span>, <span class="ruby-identifier">opacity</span> = <span class="ruby-value">255</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-text_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">text_size</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Bitmap.html#method-i-text_size">#text_size</a>(str)    -&gt;
+Integer</p>
+
+<pre>获取使用 draw_text 方法描绘字符串 str 时的矩形（Rect）。该区域不包含轮廓部分 (RGSS3) 和斜体的突出部分。
+若 str 不是字符串对象，则会在执行之前，先调用 to_s 方法转换成字符串。</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="text_size-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">text_size</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-width" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">width</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>width   -&gt; Integer</p>
+
+<pre class="ruby"><span class="ruby-identifier">获取位图的宽度。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="width-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">width</span>
+  <span class="ruby-comment">#This is a stub, used for indexing.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

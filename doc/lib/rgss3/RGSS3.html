@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RGSS3 - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="js/jquery.js"></script>
+<script src="js/darkfish.js"></script>
+
+<link href="css/fonts.css" rel="stylesheet">
+<link href="css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="table_of_contents.html#pages">Pages</a>
+    <a href="table_of_contents.html#classes">Classes</a>
+    <a href="table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#module-RGSS3-label-Author">Author</a>
+    <li><a href="#module-RGSS3-label-Translate">Translate</a>
+    <li><a href="#module-RGSS3-label-Doc+Author">Doc Author</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-load_data">#load_data</a>
+    
+    <li ><a href="#method-i-msgbox">#msgbox</a>
+    
+    <li ><a href="#method-i-msgbox_p">#msgbox_p</a>
+    
+    <li ><a href="#method-i-rgss_main">#rgss_main</a>
+    
+    <li ><a href="#method-i-rgss_stop">#rgss_stop</a>
+    
+    <li ><a href="#method-i-save_data">#save_data</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RGSS3">
+  <h1 id="module-RGSS3" class="module">
+    module RGSS3
+  </h1>
+
+  <section class="description">
+    
+<p>RGSS（Ruby Game Scripting System），也就是「Ruby游戏脚本系统」 使用面向对象脚本语言 Ruby 来开发
+Windows® 平台的2D游戏。 <a href="RGSS3.html">RGSS3</a> 即RGSS系列的第三代产品。（对应的 RPG
+Maker 作品为 RPG Maker VX Ace）</p>
+
+<h3 id="module-RGSS3-label-Author">Author<span><a href="#module-RGSS3-label-Author">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>©2011 ENTERBRAIN, INC./YOJI OJIMA &lt;<a
+href="www.rpgmakerweb.com">www.rpgmakerweb.com</a>&gt;</p>
+
+<h3 id="module-RGSS3-label-Translate">Translate<span><a href="#module-RGSS3-label-Translate">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>taroxd &lt;<a href="https://taroxd.github.io">taroxd.github.io</a>/&gt;
+余烬之中 &lt;<a
+href="https://github.com/ShadowMomo">github.com/ShadowMomo</a>&gt; 喵呜喵5
+&lt;<a
+href="http://rm.66rpg.com/home.php?mod=space&uid=291206">rm.66rpg.com/home.php?mod=space&uid=291206</a>&gt;
+DivineCrow &lt;<a
+href="http://rm.66rpg.com/home.php?mod=space&uid=2630062">rm.66rpg.com/home.php?mod=space&uid=2630062</a>&gt;
+kuerlulu &lt;<a href="http://hyrious.github.io">hyrious.github.io</a>/&gt;
+VIPArcher &lt;<a
+href="http://rm.66rpg.com/home.php?mod=space&uid=336539">rm.66rpg.com/home.php?mod=space&uid=336539</a>&gt;</p>
+
+<h3 id="module-RGSS3-label-Doc+Author">Doc Author<span><a href="#module-RGSS3-label-Doc+Author">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>shitake &lt;<a href="http://rm.66rpg.com">rm.66rpg.com</a>&gt;</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-load_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_data</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="RGSS3.html#method-i-load_data">#load_data</a>(filename)   -&gt;
+Object</p>
+
+<pre class="ruby"><span class="ruby-identifier">加载由</span> <span class="ruby-identifier">filename</span> <span class="ruby-identifier">指定的数据文件并还原成对象。</span>
+</pre>
+
+<p>example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">$data_actors</span> = <span class="ruby-identifier">load_data</span>(<span class="ruby-string">&quot;Data/Actors.rvdata2&quot;</span>)
+<span class="ruby-identifier">这个函数基本上与下面的语句相同：</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&quot;rb&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">f</span>)
+}
+<span class="ruby-identifier">不同之处在于，本函数可以从加密档案内加载数据文件。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="load_data-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 1155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_data</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-msgbox" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">msgbox</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>msgbox(arg[, …])    -&gt; nil</p>
+
+<pre class="ruby"><span class="ruby-identifier">将参数输出到对话框。如果参数并不是字符串，则会使用</span> <span class="ruby-identifier">to_s</span> <span class="ruby-identifier">方法转换为字符串后再进行输出。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="msgbox-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 1173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">msgbox</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-msgbox_p" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">msgbox_p</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="RGSS3.html#method-i-msgbox_p">#msgbox_p</a>(obj, [obj2, …])   
+-&gt; nil</p>
+
+<pre>将 obj 以人类可读的格式输出到对话框，相当于下面的代码（参考 Object#inspect）。
+msgbox obj.inspect, &quot;\n&quot;, obj2.inspect, &quot;\n&quot;, ...</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="msgbox_p-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 1180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">msgbox_p</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rgss_main" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rgss_main</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="RGSS3.html#method-i-rgss_main">#rgss_main</a> { … }</p>
+
+<pre class="ruby"><span class="ruby-identifier">仅进行一次加载的函数。</span>
+<span class="ruby-identifier">当检测到用户按下F12的时候，这个函数会被重置。</span>
+</pre>
+
+<p>example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rgss_main</span> { <span class="ruby-constant">SceneManager</span>.<span class="ruby-identifier">run</span> }
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="rgss_main-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 1136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rgss_main</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rgss_stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rgss_stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="RGSS3.html#method-i-rgss_stop">#rgss_stop</a> { … }</p>
+
+<pre class="ruby"><span class="ruby-identifier">停止脚本的执行，只保留画面的刷新。</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="rgss_stop-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 1142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rgss_stop</span>
+  <span class="ruby-comment">#This is a stub, used for indexing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-save_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save_data</span><span
+            class="method-args">(obj, filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="RGSS3.html#method-i-save_data">#save_data</a>(obj, filename)   
+-&gt; nil</p>
+
+<pre class="ruby"><span class="ruby-identifier">将对象</span> <span class="ruby-identifier">obj</span> <span class="ruby-identifier">写入名为</span> <span class="ruby-identifier">filename</span> <span class="ruby-identifier">的数据文件。</span>
+</pre>
+
+<p>example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">save_data</span>(<span class="ruby-identifier">$data_actors</span>, <span class="ruby-string">&quot;Data/Actors.rvdata2&quot;</span>)
+<span class="ruby-identifier">这个函数等价于：</span>
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&quot;wb&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+  <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">f</span>)
+}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="save_data-source">
+            <pre><span class="ruby-comment"># File rgss3.rb, line 1167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save_data</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">filename</span>)
+  <span class="ruby-comment">#This is a stub, used for indexing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
