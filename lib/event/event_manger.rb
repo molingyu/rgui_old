@@ -2,7 +2,12 @@
 #author: shitake
 #data: 16-7-8
 
+require_relative 'event_callback_fiber'
+require_relative  'event'
+
 module Event
+
+  VERSION = '1.0.0'
 
   class EventManger
 

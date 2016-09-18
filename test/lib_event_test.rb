@@ -2,7 +2,7 @@ require_relative  '../lib/event/event'
 
 event = Event::EventManger.new
 
-event.on(:shit){|em|
+event.on(:shit){|em, info|
   p em.this
   em.wait(2)
   p 233
