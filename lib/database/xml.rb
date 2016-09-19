@@ -2,7 +2,8 @@
 #author: shitake
 #data: 16-8-24
 
-class XMLLikeParser
+module XML
+
   class Node
 
     attr_accessor :name
@@ -23,72 +24,71 @@ class XMLLikeParser
     def add_child(val)
       @child.push(val)
     end
-  end
 
-  attr_reader :root
-
-  def initialize(code, conf = {})
-    @node_style, @attr_style, @end_node = conf
-    @root = Node.new('root', {}, code)
-    parse(@root)
-  end
-
-  def parse(node)
-    return if @end_node.include?(node.name)
-    node.child = parse_node(node.child, [])
-    node.child.each do |n|
-      parse(n)
-    end
-  end
-
-  def parse_node(code, child)
-    return child unless code
-    code.strip!
-    str = ''
-    index = 0
-    new_node = nil
-    if code == ''
-      return child
-    elsif code[0] != '<'
-      new_node = Node.new('text', {})
-      new_node.value = code.include?('<') ? code[0, index = code.index('<')] : (index = code.size;code)
-      child.push(new_node)
-    else
-      str = (@node_style.class == Array) ? @node_style.each{ |node| break code[node] if code[node] } : code[@node_style]
-      if str
-        index = code.index(str) + str.size
-        new_node = Node.new($1, parse_attr($2, {}), $3)
-        child.push(new_node)
+    def to_s
+      body = ''
+      @child.each { |node| body += node.to_s }
+      if body == ''
+        "<#{@name}#{attr2s}/>"
       else
-        index = code.size
-        new_node = Node.new('text', {})
-        new_node.value = code
-        child.push(new_node)
+        "<#{@name}#{attr2s}>#{body}</#{@name}>"
       end
     end
-    parse_node(code[index, code.size], child) if code.size > index
-    child
+
+    def attr2s
+      str = ''
+      @attr.each_with_index { |key, value| str += " #{key}=\"#{value}\"" }
+      str
+    end
+
   end
 
-  def parse_attr(code ,attr)
-    return attr unless code
-    code.strip!
-    str = code[@attr_style]
-    return attr unless str
-    index = code.index(str) + str.size
-    code = code[index, code.size - index]
-    attr[$1.to_sym] = $2
-    parse_attr(code, attr)
-  end
-end
+  XMLSyntaxError = Class.new(StandardError)
 
-module XML
+  class Parser
+
+    def initialize(code)
+      @code = code
+      @pos = 0
+    end
+
+    def error(msg)
+      u_text = @code[0, @pos]
+      lines = u_text.count("\n") + 1
+      cols = u_text[/(.*\n)*/].size
+      raise XMLSyntaxError, "XMLParser:第#{lines}行,第#{cols}字符处, #{msg}"
+    end
+
+    def ch
+      @code[@pos]
+    end
+
+    def ws
+      @pos += 1 while ch == "\t" || ch == "\n"
+    end
+
+    def is_name?(str)
+      error('XML 元素名称不能以数字或者标点符号开始！') unless str[0] =~ /[a-zA-z]/
+      error('XML 元素名称不能以字符 “xml”（或者 XML、Xml）开始！') if str[0, 3] == 'XML' || str[0, 3] == 'xml' || str[0, 3] == 'Xml'
+    end
+
+    def parse
+
+    end
+
+    def node_head
+
+    end
+
+    def node_body
+
+    end
+
+  end
+
   class <<self
     def xml2node(str)
-      xml = [[/^<([a-zA-Z]+[^<^ ]*)([^<]*)\/>/, /^<([a-zA-Z]+[^<^ ]*)([^<]*)>([^<]*)<\/\1>/m], # node style
-          /([a-zA-Z]+[^=]*)="([^"]*)"/, # attr style
-          ['text']] # end node
-      XMLLikeParser.new(str, xml).root
+      Parser.new(str).parse
     end
   end
 end
