@@ -14,7 +14,7 @@ $g.init('test', 640, 480) do
   RGUI.PATH = '../src'
   RGUI.init
   $g.exit = false
-  $g.start_view = TitleView
+  $g.start_view = BoxTestView
 end
 
 until $g.exit

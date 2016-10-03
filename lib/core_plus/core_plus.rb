@@ -241,7 +241,7 @@ class Bitmap
     bitmap
   end
 
-  #该函数来自白菜组基础脚本，作者Sion
+  #该函数来自白菜组基础脚本，作者Sion Error
   def draw_line(x1, y1, x2, y2, color)
     dx = x2 - x1
     dy = y2 - y1
